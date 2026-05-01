@@ -16,6 +16,12 @@ facets:
       - Petition
       - Complaint
       # - Land Description
+  - key: Year
+    wip: true
+    values:
+      - 16**
+      - 17**
+      - 18**
   - key: Archive
     values:
       - "Archivo General de la Nación"
@@ -29,13 +35,12 @@ facets:
       - Alcaldias Mayores
       - Joachin de Amador
       - Tierras
-
-  # - key: Limit Unless
-  #   values:
-  #    - "Has Translation Document"
-  #    - "Has Linguistic Analysis"
-  #    - "Has Full Text Transcription"
-  #    - "Has Full Text Translation"
+  - key: People
+    wip: true
+    values:
+      - Marcos de los Angeles Lopez
+      - Geronimo Mendes
+      - Sebastiana de Mendosa
 ---
 
 <section class="text-gray-600 body-font">
@@ -51,11 +56,45 @@ facets:
     <div class="container mx-0">
       <div class="flex flex-wrap w-full">
         <div class="xl:w-1/6 lg:w-1/5 md:w-1/3 w-full">
-          <h2 class="font-bold text-2xl tracking-tight mb-4">Filter Results</h2>
+          <h2 class="font-bold text-2xl tracking-tight mb-4">Filter</h2>
           <ul>
+            <li class="pb-6 pr-6">
+              <div class="text-xl tracking-tight my-1 text-red-700">Limit [WiP!]</div>
+              <ul>
+                <li class="py-1 pl-2">
+                  <input type="checkbox" />
+                  <a data="{{ value | remove: ',' | remove: '.' }}" class="link hover:text-accent" href="#">Has Translation Document</a>
+                </li>
+                <li class="py-1 pl-2">
+                  <input type="checkbox" />
+                  <a data="{{ value | remove: ',' | remove: '.' }}" class="link hover:text-accent" href="#">Is Translation Document</a>
+                </li>
+                <li class="py-1 pl-2">
+                  <input type="checkbox" />
+                  <a data="{{ value | remove: ',' | remove: '.' }}" class="link hover:text-accent" href="#">Has Linguistic Analysis</a>
+                </li>
+                <li class="py-1 pl-2">
+                  <input type="checkbox" />
+                  <a data="{{ value | remove: ',' | remove: '.' }}" class="link hover:text-accent" href="#">Has Full Text Transcription</a>
+                </li>
+                <li class="py-1 pl-2">
+                  <input type="checkbox" />
+                  <a data="{{ value | remove: ',' | remove: '.' }}" class="link hover:text-accent" href="#">Has Modern Spanish Translation</a>
+                </li>
+              </ul>
+            </li>
+            <!-- <li class="pb-6 pr-6">
+              <div class="text-xl tracking-tight my-1 text-red-700">Date</div>
+              <ul>
+                <li class="py-1 pl-2">
+                  <input type="checkbox" />
+                  <a data="{{ value | remove: ',' | remove: '.' }}" class="link hover:text-accent" href="#">Has Translation Document</a>
+                </li>
+              </ul>
+            </li> -->
             {%- for facet in facets -%}
             <li class="pb-6 pr-6">
-              <div class="text-xl tracking-tight my-1">{{ facet.key }}</div>
+              <div class="text-xl tracking-tight my-1 {% if facet.wip %}text-red-700{% endif %}">{{ facet.key }} {% if facet.wip %}[WiP!]{% endif %}</div>
               <ul>
                 {%- for value in facet.values -%}
                 <li class="py-1 pl-2"><a data="{{ value | remove: ',' | remove: '.' }}" class="link hover:text-accent" href="{{ '/explore/documents.html' }}?limit={{ facet.key | uri_encode }}&query={{ value | uri_encode }}">{{ value }}</a></li>

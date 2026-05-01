@@ -1,5 +1,5 @@
 ---
-title: "Find and Access Ticha Primary Documents"
+title: "Find and Access Ticha Documents"
 layout: "base"
 permalink: "/explore/documents.html"
 facets:
@@ -20,7 +20,15 @@ facets:
     wip: true
     values:
       - 16**
-      - 17**
+      - 170*
+      - 171*
+      - 172*
+      - 173*
+      - 174*
+      - 175*
+      - 176* 
+      - 178*
+      - 179*  
       - 18**
   - key: Archive
     values:
@@ -63,11 +71,15 @@ facets:
               <ul>
                 <li class="py-1 pl-2">
                   <input type="checkbox" />
-                  <a data="{{ value | remove: ',' | remove: '.' }}" class="link hover:text-accent" href="#">Has Translation Document</a>
+                  <a data="{{ value | remove: ',' | remove: '.' }}" class="link hover:text-accent" href="#">Is Primary Document</a>
                 </li>
                 <li class="py-1 pl-2">
                   <input type="checkbox" />
                   <a data="{{ value | remove: ',' | remove: '.' }}" class="link hover:text-accent" href="#">Is Translation Document</a>
+                </li>
+                <li class="py-1 pl-2">
+                  <input type="checkbox" />
+                  <a data="{{ value | remove: ',' | remove: '.' }}" class="link hover:text-accent" href="#">Has Translation Document</a>
                 </li>
                 <li class="py-1 pl-2">
                   <input type="checkbox" />

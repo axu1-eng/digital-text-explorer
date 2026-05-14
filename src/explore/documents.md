@@ -4,11 +4,13 @@ layout: "base"
 permalink: "/explore/documents.html"
 facets:
   - key: Language
+    type: multiselect
     values:
       - Zapotec
       - Spanish
       - Spanish with some Zapotec
   - key: Document Type
+    type: multiselect
     values:
       - Bill of Sale
       - Testament
@@ -17,26 +19,20 @@ facets:
       - Petition
       - Complaint
   - key: Year
+    type: numrange
     wip: true
     values:
-      - 16**
-      - 170*
-      - 171*
-      - 172*
-      - 173*
-      - 174*
-      - 175*
-      - 176* 
-      - 178*
-      - 179*  
-      - 18**
+      - 1633
+      - 1832
   - key: Archive
+    type: multiselect
     values:
       - "Archivo General de la Nación, Mexico"
       - "Archivo General del Poder Ejecutivo del Estado de Oaxaca, Mexico"
       - "Archivo Histórico de Notarias del Estado de Oaxaca, Mexico"
       - "Archivo Histórico de Tlacolula de Matamoros Oaxaca, Mexico"
   - key: Collection
+    type: multiselect
     values:
       - Rodriguez, Joseph
       - Real Intendencia
@@ -59,25 +55,43 @@ facets:
       <div class="lg:basis-1/4 md:basis-1/3 basis-full pr-12">
         <ul>
           {%- for facet in facets -%}
-          <li class="pb-6 pr-6 border border-gray-300 rounded-md mb-6">
-            <div class="text-xl tracking-tight my-3 px-2 {% if facet.wip %}text-red-700{% endif %}">
+          <li class="p-4 bg-[#f8f4ea] shadow rounded-md tracking-tight mb-6">
+            <div class="text-xl font-bold my-3 px-2 {% if facet.wip %}text-red-700{% endif %}">
               {{ facet.key }} {% if facet.wip %}<span class="text-sm">[WiP!]</span>{% endif %}
             </div>
-            <ul class="space-y-2">
+            {% if facet.type == 'multiselect'%}
+            <ul>
               {%- for value in facet.values -%}
-              <li class="py-1 pl-2">
-                <label class="flex items-center cursor-pointer hover:bg-gray-50 rounded px-2 py-1 transition-colors">
+              <li>
+                <label class="flex items-center cursor-pointer rounded px-2 py-1 transition-colors">
                   <input 
                     type="checkbox" 
                     data-facet="{{ facet.key }}"
                     data-value="{{ value }}"
-                    class="w-4 h-4 rounded border-gray-300 text-red-700 focus:ring-red-700 focus:ring-2 cursor-pointer"
+                    class="w-4 h-4 rounded border-gray-300 text-red-700 focus:ring-gray-700 focus:ring cursor-pointer"
                   />
                   <span class="ml-2 text-gray-700 hover:text-red-700">{{ value }}</span>
                 </label>
               </li>
               {%- endfor -%}
             </ul>
+            {% elsif facet.type == "numrange" %}
+                <div class="pl-2 flex flex-row w-full gap-2 items-center justify-start">
+                  <input
+                    type="number" 
+                    data-facet="{{ facet.key }}-min" 
+                    value="{{ facet.values.first }}" 
+                    data-value="{{ facet.values.first }}" 
+                    class="border rounded-md px-2 focus-visible:ring focus-visible:ring-gray-700 max-w-24"/>
+                  <span class="text-center">—</span>
+                  <input 
+                    type="number" 
+                    data-facet="{{ facet.key }}-max" 
+                    data-value="{{ facet.values.last }}" 
+                    value="{{ facet.values.last }}" 
+                    class="border rounded-md px-2 focus:ring focus:ring-gray-700 max-w-24"/>
+                </div>
+            {% endif %}
           </li>
           {%- endfor -%}
         </ul>

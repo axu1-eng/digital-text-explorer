@@ -3,11 +3,13 @@ window.addEventListener("load", (event) => {
   var resultsInfo       = document.getElementById('results-info');
   var activeFacetsContainer = document.getElementById('active-facets');
   var searchInput       = document.getElementById("search-input");
+  var searchLimitSelect = document.getElementById("search-limit-select");
   var searchSubmit      = document.getElementById("search-submit");
   var urlParams         = new URLSearchParams(window.location.search);
 
-  // State for selected facets
+  // State for selected facets and search field
   const selectedFacets = {};
+  let selectedSearchField = 'All Fields';
 
   function facetKeyToProperty(facetKey) {
     const map = {
@@ -15,10 +17,24 @@ window.addEventListener("load", (event) => {
       'Document Type': 'document_type',
       'Year': 'year',
       'Archive': 'archive',
-      'Collection': 'collection',
-      'People': 'people'
+      'Collection': 'collection'
     };
     return map[facetKey] || facetKey.toLowerCase().replaceAll(' ', '_');
+  }
+
+  function searchFieldToLunrField(fieldName) {
+    const map = {
+      'Title': 'Title',
+      'Language': 'Language',
+      'Document Type': 'Document_Type',
+      'Archive': 'Archive',
+      'Transcription': 'Transcription',
+      'Translation': 'Translation',
+      'Witnesses': 'Witnesses',
+      'Year': 'Year',
+      'Collection': 'Collection'
+    };
+    return map[fieldName] || fieldName;
   }
 
   function pruneDiacritics(string) {
@@ -35,7 +51,14 @@ window.addEventListener("load", (event) => {
     if (searchInput && searchInput.value) {
       const input = pruneDiacritics(searchInput.value);
       const tokens = input.split(' ');
-      query = toQueryString(tokens);
+      
+      // Build field-specific query if not searching all fields
+      if (selectedSearchField && selectedSearchField !== 'All Fields') {
+        const lunrFieldName = searchFieldToLunrField(selectedSearchField);
+        query = tokens.map((token) => `${lunrFieldName}:${token}^100 +${lunrFieldName}:${token}*^10 ${lunrFieldName}:${token}~2`).join(' ');
+      } else {
+        query = toQueryString(tokens);
+      }
     }
     
     let results = idx.search(query) || [];
@@ -133,6 +156,26 @@ window.addEventListener("load", (event) => {
   function renderActiveFacets(idx, resultsLookupMap) {
     activeFacetsContainer.innerHTML = null;
     
+    // Add search query tag if present
+    if (searchInput.value) {
+      const queryTag = document.createElement('div');
+      queryTag.className = 'inline-flex items-center gap-2 bg-red-100 text-red-900 px-3 py-1 rounded-full text-sm';
+      queryTag.innerHTML = `
+        <span>Search (${selectedSearchField}): ${searchInput.value}</span>
+        <button class="ml-1 font-bold hover:text-red-600 cursor-pointer" data-query-tag="true">×</button>
+      `;
+      
+      const removeQueryBtn = queryTag.querySelector('button');
+      removeQueryBtn.addEventListener('click', function(e) {
+        e.preventDefault();
+        searchInput.value = '';
+        handleSearchBehavior(idx, resultsLookupMap);
+      });
+      
+      activeFacetsContainer.appendChild(queryTag);
+    }
+    
+    // Add facet tags
     Object.entries(selectedFacets).forEach(([facetKey, values]) => {
       values.forEach((value) => {
         const tag = document.createElement('div');
@@ -298,6 +341,11 @@ window.addEventListener("load", (event) => {
     }, false);
 
     searchInput.addEventListener('keyup', function() { 
+      handleSearchBehavior(idx, resultsLookupMap);
+    }, false);
+
+    searchLimitSelect.addEventListener('change', function() {
+      selectedSearchField = this.value;
       handleSearchBehavior(idx, resultsLookupMap);
     }, false);
   });

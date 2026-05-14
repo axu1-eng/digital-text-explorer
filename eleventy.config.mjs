@@ -20,6 +20,8 @@ export default function (eleventyConfig) {
 
   eleventyConfig.addLayoutAlias('base', 'layouts/base.html')
   eleventyConfig.addLayoutAlias('document', 'layouts/document.html')
+  eleventyConfig.addLayoutAlias('home', 'layouts/home.html')
+  eleventyConfig.addLayoutAlias('page', 'layouts/page.html')
 
   eleventyConfig.addPassthroughCopy('static', 'static')
   eleventyConfig.addPassthroughCopy({ 'src/_data/documents.json': 'documents.json'})

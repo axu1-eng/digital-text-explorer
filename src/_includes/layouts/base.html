@@ -5,10 +5,8 @@ permalink: "{{ page.fileSlug | slugify }}/index.html"
 <html lang="en" id="top" data-theme="light" class="bg-[#f7efdc] scroll-smooth">
   {% include "partials/head.html" %}
   <body class="flex flex-col min-h-screen overflow-x-clip">
-    {% include "components/header.html" %}
-    <main class="flex-1">
-      {{ content }}
-    </main>
+    {% include "components/navbar.html" %}
+    {{ content }}
     {% include "components/footer.html" %}
     {% include "partials/scripts.html" %}
   </body>

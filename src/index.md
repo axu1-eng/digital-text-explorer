@@ -8,6 +8,10 @@ cards:
     eyebrow: 'Get Started'
     img: 'https://ticha.haverford.edu/static/img/flowers_copy.jpg'
     link: '/get-started/guides'
+  - label: 'Browse All Ticha Documents'
+    eyebrow: 'Explore'
+    img: 'https://ticha.haverford.edu/static/img/linguistic-background_DSC_0245.jpg'
+    link: '/explore/documents'
   - label: 'Testament from San Jerónimo Tlacochahuaya, 1675'
     eyebrow: 'Featured Document'
     img: '/static/Tl675b.png'
@@ -16,10 +20,6 @@ cards:
     eyebrow: 'Explore'
     img: '/static/map-screen.png'
     link: '/explore/towns'
-  - label: 'Browse All Ticha Documents'
-    eyebrow: 'Explore'
-    img: 'https://ticha.haverford.edu/static/img/linguistic-background_DSC_0245.jpg'
-    link: '/explore/documents'
   - label: 'Ticha Digital Editions'
     eyebrow: 'Explore'
     img: 'https://ticha.haverford.edu/static/img/doctrina_images/doctrina_example.png'
@@ -34,7 +34,7 @@ cards:
   #   link: 'http://ds-wordpress.haverford.edu/ticha-resources/modules/'
 ---
 <section class="text-gray-600 body-font">
-  <div class="lg:container px-5 py-24 mx-auto">
+  <div class="xl:container px-5 py-24 mx-auto">
     <div class="flex flex-wrap w-full mb-20">
       <div class="lg:w-1/2 w-full mb-6 lg:mb-0">
       <h3 class="text-xs text-red-700 tracking-widest font-medium title-font mb-1 uppercase">Home</h3>

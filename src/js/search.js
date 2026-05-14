@@ -46,24 +46,28 @@ window.addEventListener("load", (event) => {
     
   }
 
+  function randomHexColor() {
+    return Math.floor(Math.random() * 256).toString(16).padStart(2, '0') + 
+           Math.floor(Math.random() * 128).toString(16).padStart(2, '0') + 
+           Math.floor(Math.random() * 64).toString(16).padStart(2, '0');
+  }
+
   function appendSearchResults(results, resultsLookupMap) {
     resultsContainer.innerHTML = null;
     results.forEach(function (res) {
       let item = resultsLookupMap[res.ref];
       let resultDiv = document.createElement('div');
-      let randomHex = Math.floor(Math.random() * 256).toString(16).padStart(2, '0') + 
-                      Math.floor(Math.random() * 128).toString(16).padStart(2, '0') + 
-                      Math.floor(Math.random() * 64).toString(16).padStart(2, '0'); 
-      resultDiv.classList.add("group", "xl:w-1/6", "lg:w-1/5", "md:w-1/3", "sm:-1/2", "w-full", "transition", "duration-350", "ease-in-out", "hover:scale-110");
+      let hexColor = randomHexColor(); 
+      resultDiv.classList.add("w-full", "group", "transition", "duration-350", "ease-in-out", "hover:scale-110");
       resultDiv.innerHTML = `
         <a href="${prefixUrl}document/${ item.slug }.html">          
-          <div class="block relative h-32 w-full rounded-tl-[3rem] rounded-br-[3rem] overflow-hidden bg-[url(../static/Tl675b.png)] bg-contain bg-center">
+          <div class="relative h-36 w-full rounded-tl-[3rem] rounded-br-[3rem] overflow-hidden bg-[url(../static/Tl675b.png)] bg-contain bg-center">
             ${ item.language && item.language.startsWith("Zapotec") ? 
               `<div class="absolute top-0 right-0 bg-red-950 text-[#f7efdc] text-lg font-bold px-2 py-1 rounded-bl-lg z-10">Zapotec</div>` 
             : 
             `<div class="absolute top-0 right-0 bg-red-800 text-[#f7efdc] text-lg font-bold px-2 py-1 rounded-bl-lg z-10">Spanish</div>` 
             }
-            <div class="absolute top-0 left-0 w-full h-full block transition-opacity saturate-50 opacity-80 duration-350 ease-in-out group-hover:opacity-0" style="background-color: #${randomHex};"></div>
+            <div class="absolute top-0 left-0 w-full h-full block transition-opacity saturate-50 opacity-80 duration-350 ease-in-out group-hover:opacity-0" style="background-color: #${hexColor};"></div>
           </div>
           <div class="mt-4">
             ${ item.title.startsWith("Translation") ? 
@@ -80,10 +84,10 @@ window.addEventListener("load", (event) => {
     })
   }
 
-  function appendSearchInfo(results) {
+  function appendSearchInfo(resultsLength, fullIndexLength) {
     resultsInfo.innerHTML = null;
     let infoDiv = document.createElement('div');
-    infoDiv.innerHTML = `Found ${results.length} results`;
+    infoDiv.innerHTML = `Showing ${resultsLength} of ${fullIndexLength} results`;
     resultsInfo.appendChild(infoDiv);
   }
 
@@ -99,7 +103,7 @@ window.addEventListener("load", (event) => {
 
   function handleSearchBehavior(idx, resultsLookupMap){
     results = submitSearchQuery(idx);
-    appendSearchInfo(results);
+    appendSearchInfo(results.length, Object.keys(resultsLookupMap).length);
     appendSearchResults(results, resultsLookupMap);
     // Update URL parameters
     const newUrlParams = new URLSearchParams();

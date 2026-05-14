@@ -7,6 +7,7 @@ facets:
     values:
       - Zapotec
       - Spanish
+      - Spanish with some Zapotec
   - key: Document Type
     values:
       - Bill of Sale
@@ -15,7 +16,6 @@ facets:
       - Receipt
       - Petition
       - Complaint
-      # - Land Description
   - key: Year
     wip: true
     values:
@@ -32,10 +32,10 @@ facets:
       - 18**
   - key: Archive
     values:
-      - "Archivo General de la Nación"
-      - "Archivo General del Poder Ejecutivo del Estado de Oaxaca"
-      - "Archivo Histórico de Notarias del Estado de Oaxaca"
-      - "Archivo Histórico de Tlacolula de Matamoros Oaxaca"
+      - "Archivo General de la Nación, Mexico"
+      - "Archivo General del Poder Ejecutivo del Estado de Oaxaca, Mexico"
+      - "Archivo Histórico de Notarias del Estado de Oaxaca, Mexico"
+      - "Archivo Histórico de Tlacolula de Matamoros Oaxaca, Mexico"
   - key: Collection
     values:
       - Rodriguez, Joseph
@@ -43,12 +43,6 @@ facets:
       - Alcaldias Mayores
       - Joachin de Amador
       - Tierras
-  - key: People
-    wip: true
-    values:
-      - Marcos de los Angeles Lopez
-      - Geronimo Mendes
-      - Sebastiana de Mendosa
 ---
 
 <section class="text-gray-600 body-font">
@@ -64,41 +58,24 @@ facets:
     <div class="flex flex-wrap w-full">
       <div class="lg:basis-1/4 md:basis-1/3 basis-full pr-12">
         <ul>
-          <li class="pb-6 pr-6">
-            <div class="text-xl tracking-tight my-1 text-red-700">Limit [WiP!]</div>
-            <ul>
-              <li class="py-1 pl-2">
-                <input type="checkbox" />
-                <a data="{{ value | remove: ',' | remove: '.' }}" class="link hover:text-accent" href="#">Is Primary Document</a>
-              </li>
-              <li class="py-1 pl-2">
-                <input type="checkbox" />
-                <a data="{{ value | remove: ',' | remove: '.' }}" class="link hover:text-accent" href="#">Is Translation Document</a>
-              </li>
-              <li class="py-1 pl-2">
-                <input type="checkbox" />
-                <a data="{{ value | remove: ',' | remove: '.' }}" class="link hover:text-accent" href="#">Has Translation Document</a>
-              </li>
-              <li class="py-1 pl-2">
-                <input type="checkbox" />
-                <a data="{{ value | remove: ',' | remove: '.' }}" class="link hover:text-accent" href="#">Has Linguistic Analysis</a>
-              </li>
-              <li class="py-1 pl-2">
-                <input type="checkbox" />
-                <a data="{{ value | remove: ',' | remove: '.' }}" class="link hover:text-accent" href="#">Has Full Text Transcription</a>
-              </li>
-              <li class="py-1 pl-2">
-                <input type="checkbox" />
-                <a data="{{ value | remove: ',' | remove: '.' }}" class="link hover:text-accent" href="#">Has Modern Spanish Translation</a>
-              </li>
-            </ul>
-          </li>
           {%- for facet in facets -%}
-          <li class="pb-6 pr-6 border rounded-md mb-6">
-            <div class="text-xl tracking-tight my-1 {% if facet.wip %}text-red-700{% endif %}">{{ facet.key }} {% if facet.wip %}[WiP!]{% endif %}</div>
-            <ul>
+          <li class="pb-6 pr-6 border border-gray-300 rounded-md mb-6">
+            <div class="text-xl tracking-tight my-3 px-2 {% if facet.wip %}text-red-700{% endif %}">
+              {{ facet.key }} {% if facet.wip %}<span class="text-sm">[WiP!]</span>{% endif %}
+            </div>
+            <ul class="space-y-2">
               {%- for value in facet.values -%}
-              <li class="py-1 pl-2"><a data="{{ value | remove: ',' | remove: '.' }}" class="link hover:text-accent" href="{{ '/explore/documents.html' }}?limit={{ facet.key | uri_encode }}&query={{ value | uri_encode }}">{{ value }}</a></li>
+              <li class="py-1 pl-2">
+                <label class="flex items-center cursor-pointer hover:bg-gray-50 rounded px-2 py-1 transition-colors">
+                  <input 
+                    type="checkbox" 
+                    data-facet="{{ facet.key }}"
+                    data-value="{{ value }}"
+                    class="w-4 h-4 rounded border-gray-300 text-red-700 focus:ring-red-700 focus:ring-2 cursor-pointer"
+                  />
+                  <span class="ml-2 text-gray-700 hover:text-red-700">{{ value }}</span>
+                </label>
+              </li>
               {%- endfor -%}
             </ul>
           </li>

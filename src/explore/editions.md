@@ -14,8 +14,8 @@ permalink: "/explore/editions.html"
       <img alt="" class="object-cover object-center w-full h-full block" src="https://dummyimage.com/420x260">
     </a>
     <div class="mt-4">
-      <h3 class="text-red-700 text-xs tracking-widest title-font mb-1 uppercase">Digital Edition</h3>
-      <h2 class="text-gray-900 title-font text-lg font-bold leading-tight">{{ edition.title }}</h2>
+      <h3 class="text-accent-light text-xs tracking-widest title-font mb-1 uppercase">Digital Edition</h3>
+      <h2 class="text-text-dark title-font text-lg font-bold leading-tight">{{ edition.title }}</h2>
       <p class="mt-1 text-xs">{{ edition.subtitle }}</p>
     </div>
   </div>

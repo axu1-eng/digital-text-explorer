@@ -29,18 +29,18 @@ browse_blocks:
 ---
 
 <div class="my-6">
-  <h2 class="md:text-2xl text-xl font-medium title-font text-gray-900 mb-6">FAQs</h2>
-  <ul class="list-disc text-red-700">
-    <li><a class="hover:text-red-800" href="/get-started/guides/finding-documents.html">What is available in the Ticha Document Explorer?</a></li>
-    <li><a class="hover:text-red-800" href="#">What is a Ticha Digital Edition?</a></li>
+  <h2 class="md:text-2xl text-xl font-medium title-font text-text-dark mb-6">FAQs</h2>
+  <ul class="list-disc text-accent-light">
+    <li><a class="hover:text-accent-dark" href="/get-started/guides/finding-documents.html">What is available in the Ticha Document Explorer?</a></li>
+    <li><a class="hover:text-accent-dark" href="#">What is a Ticha Digital Edition?</a></li>
   </ul>
 </div>  
 
 <div class="my-6">
-  <h2 class="md:text-2xl text-xl font-medium title-font text-gray-900 mb-6">Guides</h2>
-  <ul class="list-disc text-red-700">
-    <li><a class="hover:text-red-800" href="/get-started/guides/finding-documents.html">How to Find and Access Primary Documents</a></li>
-    <li><a class="hover:text-red-800" href="#">A Linguist's Guide to the the Ticha Document Explorer</a></li>
-    <li><a class="hover:text-red-800" href="#">How to Use the Ticha Zapotec Dictionary to Search the Ticha Document Explorer</a></li>
+  <h2 class="md:text-2xl text-xl font-medium title-font text-text-dark mb-6">Guides</h2>
+  <ul class="list-disc text-accent-light">
+    <li><a class="hover:text-accent-dark" href="/get-started/guides/finding-documents.html">How to Find and Access Primary Documents</a></li>
+    <li><a class="hover:text-accent-dark" href="#">A Linguist's Guide to the the Ticha Document Explorer</a></li>
+    <li><a class="hover:text-accent-dark" href="#">How to Use the Ticha Zapotec Dictionary to Search the Ticha Document Explorer</a></li>
   </ul>
 </div>

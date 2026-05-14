@@ -4,6 +4,16 @@
   background: #fcf49a;
 }
 
+@theme {
+  --color-neutral-light: #F7EFDC;
+  --color-neutral-dark: #E9D2C4;
+  --color-accent-light: #A52812;
+  --color-accent-dark: #7E1010;
+  --color-accent-alt-light: #D2CFDE;
+  --color-accent-alt-dark: #594B96;
+  --color-text-light: #534D54;
+  --color-text-dark: #2A222C;
+}
 /* .dropdown-menu {
   transition: all 0.2s ease-in-out;
   overflow: hidden;

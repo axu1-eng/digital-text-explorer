@@ -26,13 +26,13 @@ keys:
   - modern_spanish
 ---
 
-<header class="bg-[#dbd2bd]">
+<header class="bg-neutral-dark">
   <div class="xl:container px-5 py-24 mx-auto">
     <div class="flex flex-wrap w-full">
       <div class="lg:w-1/2 w-full mb-6 lg:mb-0">
-        <h3 class="text-xs text-red-700 tracking-widest font-medium title-font mb-1 uppercase">Document</h3>
-        <h1 class="sm:text-3xl text-2xl font-medium title-font mb-2 text-gray-900">{{ document.title }}</h1>
-        <div class="h-1 w-20 bg-red-700 rounded mt-4"></div>
+        <h3 class="text-xs text-accent-light tracking-widest font-medium title-font mb-1 uppercase">Document</h3>
+        <h1 class="sm:text-3xl text-2xl font-medium title-font mb-2 text-text-dark">{{ document.title }}</h1>
+        <div class="h-1 w-20 bg-accent-light rounded mt-4"></div>
       </div>
       <div class="lg:w-1/2 w-full lg:pl-6">
         <div class="basis-1/6 h-10 md:h-12 text-right text-xl font-bold">
@@ -40,14 +40,14 @@ keys:
             <a 
             aria-label="navigate to primary document" 
             href="{{ document.is_translation }}.html"
-            class="block text-red-700 hover:text-red-900 -mr-1 tooltip tooltip-bottom" data-tip="Primary Document">
+            class="block text-accent-light hover:text-accent-dark -mr-1 tooltip tooltip-bottom" data-tip="Primary Document">
             View Primary Document
           </a>
           {% elsif document.has_translation %}
           <a 
             aria-label="navigate to translation document" 
             href="{{ document.has_translation }}.html"
-            class="block text-red-700 hover:text-red-900 -mr-1 tooltip tooltip-bottom" data-tip="Translation Document">
+            class="block text-accent-light hover:text-accent-dark -mr-1 tooltip tooltip-bottom" data-tip="Translation Document">
             View Translation Document
           </a>
           {% endif %}
@@ -62,7 +62,7 @@ keys:
     <div class="flex flex-wrap -m-4">
       <div class="p-4 md:w-1/2 w-full">
         <div class="h-[80vh] bg-gray-100 bg-opacity-75 px-8 pt-16 pb-24 rounded-lg overflow-hidden text-center relative">
-          <h2 class="tracking-widest text-xs title-font font-medium text-gray-400 mb-1">Document Viewer</h2>
+          <h2 class="tracking-widest text-xs title-font font-medium text-text-light mb-1">Document Viewer</h2>
           <p class="leading-relaxed mb-3">TO DO</p>
         </div>
       </div>

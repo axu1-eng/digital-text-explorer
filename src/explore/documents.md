@@ -44,14 +44,14 @@ facets:
 
 {% include "components/search-header.html" %}
 <main class="flex-1">
-  <section class="text-gray-600 body-font">
+  <section class="text-text-light body-font">
     <div class="xl:container px-5 py-12 mx-auto">
       <div class="flex md:flex-nowrap gap-12 flex-wrap w-full">
         <div class="basis-full md:basis-1/3 xl:basis-1/4">
           <ul>
             {%- for facet in facets -%}
             <li class="p-4 bg-[#f8f4ea] shadow rounded-md tracking-tight mb-6">
-              <div class="text-xl font-bold my-3 px-2 {% if facet.wip %}text-red-700{% endif %}">
+              <div class="text-xl font-bold my-3 px-2 {% if facet.wip %}text-accent-light{% endif %}">
                 {{ facet.key }} {% if facet.wip %}<span class="text-sm">[WiP!]</span>{% endif %}
               </div>
               {% if facet.type == 'multiselect'%}
@@ -63,9 +63,9 @@ facets:
                       type="checkbox" 
                       data-facet="{{ facet.key }}"
                       data-value="{{ value }}"
-                      class="w-4 h-4 rounded border-gray-300 text-red-700 focus:ring-gray-700 focus:ring cursor-pointer"
+                      class="w-4 h-4 rounded accent-accent-alt-dark border-text-light text-accent-light focus:ring-text-light focus:ring cursor-pointer"
                     />
-                    <span class="ml-2 text-gray-700 hover:text-red-700">{{ value }}</span>
+                    <span class="ml-2 text-text-dark hover:text-accent-light">{{ value }}</span>
                   </label>
                 </li>
                 {%- endfor -%}
@@ -77,14 +77,14 @@ facets:
                       data-facet="{{ facet.key }}-min" 
                       value="{{ facet.values.first }}" 
                       data-value="{{ facet.values.first }}" 
-                      class="border rounded-md px-2 focus-visible:ring focus-visible:ring-gray-700 max-w-24"/>
+                      class="border rounded-md px-2 focus-visible:ring focus-visible:ring-text-light max-w-24"/>
                     <span class="text-center">—</span>
                     <input 
                       type="number" 
                       data-facet="{{ facet.key }}-max" 
                       data-value="{{ facet.values.last }}" 
                       value="{{ facet.values.last }}" 
-                      class="border rounded-md px-2 focus:ring focus:ring-gray-700 max-w-24"/>
+                      class="border rounded-md px-2 focus:ring focus:ring-text-light max-w-24"/>
                   </div>
               {% endif %}
             </li>

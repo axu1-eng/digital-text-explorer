@@ -1,6 +1,7 @@
 window.addEventListener("load", (event) => {
   var resultsContainer  = document.getElementById('results');
   var resultsInfo       = document.getElementById('results-info');
+  var activeFacetsContainer = document.getElementById('active-facets');
   var searchInput       = document.getElementById("search-input");
   var searchSubmit      = document.getElementById("search-submit");
   var urlParams         = new URLSearchParams(window.location.search);
@@ -129,6 +130,42 @@ window.addEventListener("load", (event) => {
     resultsInfo.appendChild(infoDiv);
   }
 
+  function renderActiveFacets(idx, resultsLookupMap) {
+    activeFacetsContainer.innerHTML = null;
+    
+    Object.entries(selectedFacets).forEach(([facetKey, values]) => {
+      values.forEach((value) => {
+        const tag = document.createElement('div');
+        tag.className = 'inline-flex items-center gap-2 bg-red-100 text-red-900 px-3 py-1 rounded-full text-sm';
+        tag.innerHTML = `
+          <span>${facetKey}: ${value}</span>
+          <button class="ml-1 font-bold hover:text-red-600 cursor-pointer" data-facet="${facetKey}" data-value="${value}">×</button>
+        `;
+        
+        const removeBtn = tag.querySelector('button');
+        removeBtn.addEventListener('click', function(e) {
+          e.preventDefault();
+          const facetKeyToRemove = this.getAttribute('data-facet');
+          const valueToRemove = this.getAttribute('data-value');
+          
+          selectedFacets[facetKeyToRemove] = selectedFacets[facetKeyToRemove].filter(v => v !== valueToRemove);
+          
+          // Uncheck the corresponding checkbox
+          const checkboxes = document.querySelectorAll(`input[type="checkbox"][data-facet="${facetKeyToRemove}"]`);
+          checkboxes.forEach((checkbox) => {
+            if (pruneDiacritics(checkbox.getAttribute('data-value')) === valueToRemove) {
+              checkbox.checked = false;
+            }
+          });
+          
+          handleSearchBehavior(idx, resultsLookupMap);
+        });
+        
+        activeFacetsContainer.appendChild(tag);
+      });
+    });
+  }
+
   function updateUrlParams() {
     const newUrlParams = new URLSearchParams();
     if (searchInput.value) {
@@ -162,6 +199,7 @@ window.addEventListener("load", (event) => {
   function handleSearchBehavior(idx, resultsLookupMap) {
     results = submitSearchQuery(idx, resultsLookupMap);
     appendSearchInfo(results.length, Object.keys(resultsLookupMap).length);
+    renderActiveFacets(idx, resultsLookupMap);
     appendSearchResults(results, resultsLookupMap);
     updateUrlParams();
   }
@@ -187,9 +225,10 @@ window.addEventListener("load", (event) => {
     checkboxes.forEach((checkbox) => {
       const facetKey = checkbox.getAttribute('data-facet');
       const facetValue = checkbox.getAttribute('data-value');
+      const prunedFacetValue = pruneDiacritics(facetValue);
       
       // Initialize checkbox state from URL params
-      if (selectedFacets[facetKey] && selectedFacets[facetKey].includes(facetValue)) {
+      if (selectedFacets[facetKey] && selectedFacets[facetKey].includes(prunedFacetValue)) {
         checkbox.checked = true;
       }
       
@@ -200,11 +239,11 @@ window.addEventListener("load", (event) => {
         }
         
         if (this.checked) {
-          if (!selectedFacets[facetKey].includes(facetValue)) {
-            selectedFacets[facetKey].push(facetValue);
+          if (!selectedFacets[facetKey].includes(prunedFacetValue)) {
+            selectedFacets[facetKey].push(prunedFacetValue);
           }
         } else {
-          selectedFacets[facetKey] = selectedFacets[facetKey].filter(v => v !== facetValue);
+          selectedFacets[facetKey] = selectedFacets[facetKey].filter(v => v !== prunedFacetValue);
         }
         
         handleSearchBehavior(window.idx, resultsLookupMap);

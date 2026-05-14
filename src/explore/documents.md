@@ -85,6 +85,7 @@ facets:
       <div class="lg:basis-3/4 md:basis-2/3 basis-full">
         {% include "partials/searchbar.html" %}
         <div id="results-info" class="my-6"></div>
+         <div id="active-facets" class="mb-4 flex flex-wrap gap-2"></div>
         <div id="results" class="grid grid-cols-1 xs:grid-cols-2 sm:grid-cols-3 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-12 flex-wrap justify-between w-full"></div>
     </div>
   </div>

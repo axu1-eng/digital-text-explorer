@@ -6,12 +6,23 @@
      integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo="
      crossorigin=""></script>
 
-<div id="map" class="h-[70vh] shadow rounded-2xl"></div>
+<div id="map" class="h-[80vh] shadow rounded-2xl"></div>
 
 <script>
-  var map = L.map('map').setView([16.6542, -97], 8.5);
+  window.map = L.map('map').setView([16.87, -97], 8);
+  window.townMarkers = {};
+
   L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/World_Street_Map/MapServer/tile/{z}/{y}/{x}', {
     attribution: 'Tiles &copy; Esri'
-  }).addTo(map);
+  }).addTo(window.map);
 
+  // Add markers for each town
+  var towns = {{ towns | jsonify }};
+  towns.forEach(town => {
+    const coords = JSON.parse(town.gps_coordinates);
+    const marker = L.marker([coords[1], coords[0]]).addTo(window.map);
+    const popupHTML = `<div class="font-bold" style="max-width:8rem"><a style="color: var(--color-accent-light);" href="documents?query=${encodeURIComponent(town.town_short)}">See Documents from ${town.town_short}</a></div>`;
+    marker.bindPopup(popupHTML);
+    window.townMarkers[town.id] = marker;
+  });
 </script>

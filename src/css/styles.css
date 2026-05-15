@@ -1,10 +1,6 @@
 @import "tailwindcss";
 @import url('https://fonts.googleapis.com/css2?family=Alexandria:wght@100..900&display=swap');
 
-::selection {
-  background: #fcf49a;
-}
-
 @theme {
   --font-sans: "Alexandria", sans-serif; 
   --color-neutral-light: #F7EFDC;
@@ -16,6 +12,11 @@
   --color-text-light: #534D54;
   --color-text-dark: #2A222C;
 }
+
+::selection {
+  background: #fcf49a;
+}
+
 /* .dropdown-menu {
   transition: all 0.2s ease-in-out;
   overflow: hidden;

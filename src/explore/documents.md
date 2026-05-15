@@ -3,34 +3,6 @@ section: Explore
 title: "All Documents"
 layout: "base"
 permalink: "/explore/documents.html"
-facets:
-  - key: Language
-    type: multiselect
-    values:
-      - Zapotec
-      - Spanish
-      - Spanish with some Zapotec
-  - key: Document Type
-    type: multiselect
-    values:
-      - Bill of Sale
-      - Testament
-      - Land Deed
-      - Receipt
-      - Petition
-      - Complaint
-  - key: Year
-    type: numrange
-    values:
-      - 1633
-      - 1832
-  - key: Archive
-    type: multiselect
-    values:
-      - "Archivo General de la Nación, Mexico"
-      - "Archivo General del Poder Ejecutivo del Estado de Oaxaca, Mexico"
-      - "Archivo Histórico de Notarias del Estado de Oaxaca, Mexico"
-      - "Archivo Histórico de Tlacolula de Matamoros Oaxaca, Mexico"
 ---
 
 {% include "components/search-header.html" %}
@@ -40,7 +12,7 @@ facets:
       <div class="flex md:flex-nowrap gap-12 flex-wrap w-full">
         <div class="basis-full md:basis-1/3 xl:basis-1/4">
           <ul>
-            {%- for facet in facets -%}
+            {%- for facet in searchConfig.facets -%}
             <li class="p-4 bg-[#f8f4ea] shadow rounded-md tracking-tight mb-6">
               <div class="text-xl font-bold my-3 px-2 {% if facet.wip %}text-accent-light{% endif %}">
                 {{ facet.key }} {% if facet.wip %}<span class="text-sm">[WiP!]</span>{% endif %}
@@ -98,4 +70,4 @@ facets:
     </div>
   </section>
 </main>
-<script src="{{ '/js/search.js' }}"></script>
+<script type="module" src="{{ '/js/search.js' }}"></script>

@@ -6,6 +6,12 @@
     const data = await response.json();
     return data;
   }
+</script>
+
+<!-- Embed searchConfig as JSON to avoid Markdown/html reflow issues -->
+<script id="search-config" type="application/json">{{ searchConfig | jsonify }}</script>
+
+<script>
   window.prefixUrl    = "{{ '/' | url }}";
   window.promisedData = fetchData("{{ '/documents.json' | url }}"); 
   console.log("Search data promise:", window.promisedData);
@@ -16,15 +22,9 @@
 
     <select id="search-limit-select" class="flex-none min-w-[150px] w-fit z-10 px-2 active:border-transparent focus:border-transparent focus:ring-0 focus:outline-none bg-transparent border-none cursor-pointer">
       <option disabled>Search Within</option>
-      <option>All Fields</option>
-      <option>Title</option>
-      <option>Language</option>
-      <option>Document Type</option>
-      <option>Year</option>
-      <option>Town</option>
-      <option>Archive</option>
-      <option>Transcription</option>
-      <option>Translation</option>
+      {%- for field in searchConfig.searchFields -%}
+        <option>{{ field }}</option>
+      {%- endfor -%}
     </select>
 
     <div class="ml-4 border-r h-10"></div>

@@ -21,7 +21,6 @@ facets:
       - Complaint
   - key: Year
     type: numrange
-    wip: true
     values:
       - 1633
       - 1832
@@ -32,14 +31,6 @@ facets:
       - "Archivo General del Poder Ejecutivo del Estado de Oaxaca, Mexico"
       - "Archivo Histórico de Notarias del Estado de Oaxaca, Mexico"
       - "Archivo Histórico de Tlacolula de Matamoros Oaxaca, Mexico"
-  - key: Collection
-    type: multiselect
-    values:
-      - Rodriguez, Joseph
-      - Real Intendencia
-      - Alcaldias Mayores
-      - Joachin de Amador
-      - Tierras
 ---
 
 {% include "components/search-header.html" %}
@@ -73,18 +64,26 @@ facets:
               {% elsif facet.type == "numrange" %}
                   <div class="pl-2 flex flex-row w-full gap-2 items-center justify-start">
                     <input
-                      type="number" 
-                      data-facet="{{ facet.key }}-min" 
-                      value="{{ facet.values.first }}" 
-                      data-value="{{ facet.values.first }}" 
-                      class="border rounded-md px-2 focus-visible:ring focus-visible:ring-text-light max-w-24"/>
+                      required
+                      min="{{ facet.values.first }}" 
+                      max="{{ facet.values.last }}"
+                      type="number"
+                      data-facet="{{ facet.key }}"
+                      data-range="min"
+                      value="{{ facet.values.first }}"
+                      class="border rounded-md px-2 focus-visible:ring focus-visible:ring-text-light max-w-24"
+                    />
                     <span class="text-center">—</span>
-                    <input 
-                      type="number" 
-                      data-facet="{{ facet.key }}-max" 
-                      data-value="{{ facet.values.last }}" 
-                      value="{{ facet.values.last }}" 
-                      class="border rounded-md px-2 focus:ring focus:ring-text-light max-w-24"/>
+                    <input
+                      required
+                      min="{{ facet.values.first }}" 
+                      max="{{ facet.values.last }}"
+                      type="number"
+                      data-facet="{{ facet.key }}"
+                      data-range="max"
+                      value="{{ facet.values.last }}"
+                      class="border rounded-md px-2 focus:ring focus:ring-text-light max-w-24"
+                    />
                   </div>
               {% endif %}
             </li>

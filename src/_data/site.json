@@ -29,11 +29,11 @@
           "url": "/explore/editions"
         },
         {
-          "title": "Browse by Town",
+          "title": "Documents by Town",
           "url": "/explore/towns"
         },
         {
-          "title": "Browse Mentioned Persons",
+          "title": "Mentioned Persons",
           "url": "/explore/persons"
         }
       ]

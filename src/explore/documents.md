@@ -1,6 +1,6 @@
 ---
 section: Explore
-title: "Find and Access Ticha Documents"
+title: "All Documents"
 layout: "base"
 permalink: "/explore/documents.html"
 facets:

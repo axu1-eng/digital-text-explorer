@@ -1,6 +1,6 @@
 ---
 section: "Explore"
-title: "Ticha Digital Editions"
+title: "Digital Editions"
 description: >-
   Ticha Digital Editions are specially curated documents with additional critical ___ and linguistic ___. Read more in our ___ guide.
 layout: "page"

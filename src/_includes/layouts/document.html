@@ -3,39 +3,62 @@ layout: base
 keys:
   - language
   - document_type
-  - material_type
   - archive
   - collection
   - call_number
   - page
-  - date_digitized
+#  - date_digitized
   - year
-  - town_modern_official
-  - pueblo
-  - primary_parties
-  - town_short
   - date
-  - has_translation
-  - transcription
+  - town_short
+#  - town_modern_official
+#  - pueblo
+  - primary_parties
   - scribe
-  - is_translation
   - witnesses
-  - acknowledgements
-  - permission_file
+  - transcription
   - interlinear_analysis
   - modern_spanish
+  - permission_file
+  - acknowledgements
 ---
 
 <header class="bg-neutral-dark">
-  <div class="xl:container px-5 py-24 mx-auto">
-    <div class="flex flex-wrap w-full">
-      <div class="lg:w-1/2 w-full mb-6 lg:mb-0">
-        <h3 class="text-xs text-accent-light tracking-widest font-medium title-font mb-1 uppercase">Document</h3>
+  <div class="xl:container px-5 py-14 mx-auto">
+    <div class="flex flex-wrap justify-between w-full">
+      <div class="lg:w-1/2 w-full lg:mb-0">
+        <h3 class="text-xs text-accent-light tracking-widest font-medium title-font mb-1 uppercase">{{ document.language }} Document</h3>
         <h1 class="sm:text-3xl text-2xl font-medium title-font mb-2 text-text-dark">{{ document.title }}</h1>
         <div class="h-1 w-20 bg-accent-light rounded mt-4"></div>
       </div>
-      <div class="lg:w-1/2 w-full lg:pl-6">
-        <div class="basis-1/6 h-10 md:h-12 text-right text-xl font-bold">
+      <div class="lg:w-1/2 w-full lg:pl-6 lg:mt-0 mt-6 flex items-center justify-end">
+        <!-- <div class="basis-1/6"> -->
+          {% if document.is_translation %} 
+            <a class="group" aria-label="navigate to primary document" href="{{ document.is_translation }}.html">          
+              <div class="relative h-20 w-48 rounded-tl-[2rem] rounded-br-[2rem] overflow-hidden bg-[url(../static/Tl675b.png)] bg-contain bg-center">
+                <div class="absolute top-0 right-0 bg-accent-dark text-[#f7efdc] text-lg font-bold px-2 py-1 rounded-bl-lg z-10">Zapotec</div>
+                <div class="absolute top-0 left-0 w-full h-full block transition-opacity saturate-50 opacity-80 duration-350 ease-in-out group-hover:opacity-0" style="background-color: #a46136;"></div>
+              </div>
+              <div class="mt-2">
+                <h2 class="text-text-dark text-lg title-font font-bold leading-tight w-48">
+                  See the Primary Document
+                </h2>
+              </div>
+            </a>
+          {% elsif document.has_translation %}
+            <a class="group" aria-label="navigate to primary document" href="{{ document.has_translation }}.html">          
+              <div class="relative h-20 w-48 rounded-tl-[2rem] rounded-br-[2rem] overflow-hidden bg-[url(../static/Tl675b.png)] bg-contain bg-center">
+                <div class="absolute top-0 right-0 bg-accent-dark text-[#f7efdc] text-lg font-bold px-2 py-1 rounded-bl-lg z-10">Spanish</div>
+                <div class="absolute top-0 left-0 w-full h-full block transition-opacity saturate-50 opacity-80 duration-350 ease-in-out group-hover:opacity-0" style="background-color: #67781d;"></div>
+              </div>
+              <div class="mt-2">
+                <h2 class="text-text-dark text-lg title-font font-bold leading-tight w-48">
+                  See the Translation Document
+                </h2>
+              </div>
+            </a>
+          {% endif %}
+          {% comment %}
           {% if document.is_translation %}
             <a 
             aria-label="navigate to primary document" 
@@ -51,14 +74,15 @@ keys:
             View Translation Document
           </a>
           {% endif %}
-        </div>
+          {% endcomment %}
+        <!-- </div> -->
       </div>
     </div> 
   </div>
 </header>
 
 <main>
-  <div class="xl:container px-5 py-24 mx-auto">
+  <div class="xl:container px-5 py-14 mx-auto">
     <div class="flex flex-wrap -m-4">
       <div class="p-4 md:w-1/2 w-full">
         <div class="h-[80vh] bg-gray-100 bg-opacity-75 px-8 pt-16 pb-24 rounded-lg overflow-hidden text-center relative">
@@ -71,7 +95,7 @@ keys:
           {% for key in keys %}
             {% if document[key] %}
               <dt class="font-bold">{{ key | capitalize }}</dt>
-              <dd class="pb-4">{{ document[key] }}</dd>
+              <dd class="pb-4 text-text-light">{{ document[key] }}</dd>
             {% endif %}
           {% endfor %}
         </div>

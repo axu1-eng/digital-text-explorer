@@ -1,6 +1,6 @@
 ---
 section: Explore
-title: "Find and Access Documents by Town"
+title: "Documents by Town"
 layout: "page"
 permalink: "/explore/towns.html"
 ---

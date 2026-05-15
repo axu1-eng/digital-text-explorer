@@ -1,5 +1,5 @@
 {
-  "title": "Ticha Document Explorer",
+  "title": "Ticha Digital Text Explorer",
   "description": "",
   "url": "",
   "menu": [
@@ -7,7 +7,7 @@
       "title": "Get Started",
       "sub": [
         {
-          "title": "Using the Ticha Document Explorer",
+          "title": "Using the Ticha Digital Text Explorer",
           "url": "/get-started/guides"
         },
         {

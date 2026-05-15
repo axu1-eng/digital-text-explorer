@@ -1,4 +1,4 @@
-# ticha-doc-explorer
+# Ticha Digital Text Explorer
 
 ## Getting Started
 

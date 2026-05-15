@@ -1,8 +1,8 @@
 ---
 section: Getting Started
-title: "Guide: Finding Documents in the Ticha Document Explorer"
+title: "Guide: Finding Documents in the Ticha Digital Text Explorer"
 description: >-
-  The Ticha Document Explorer allows users to access and explore many interlinked layers of texts from a corpus of Colonial Valley Zapotec manuscripts and printed books, including images of the original documents, transcriptions, translations, and linguistic analysis, including morphological interlinearization.
+  The Ticha Digital Text Explorer allows users to access and explore many interlinked layers of texts from a corpus of Colonial Valley Zapotec manuscripts and printed books, including images of the original documents, transcriptions, translations, and linguistic analysis, including morphological interlinearization.
 layout: "page"
 permalink: "/get-started/guides/finding-documents.html"
 browse_blocks:

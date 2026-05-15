@@ -25,23 +25,51 @@ permalink: "/explore/towns.html"
 </main>
 
 <script>
-  window.addEventListener('DOMContentLoaded', () => {
+  function setupTownClickHandlers() {
+    if (!window.map || !window.townMarkers) {
+      setTimeout(setupTownClickHandlers, 100);
+      return;
+    }
+
     const townLinks = document.querySelectorAll('a[data-gps]');
     townLinks.forEach(link => {
       link.addEventListener('click', event => {
         event.preventDefault();
         const coords = JSON.parse(link.dataset.gps);
-        if (window.map && Array.isArray(coords) && coords.length === 2) {
+        if (Array.isArray(coords) && coords.length === 2) {
           const [lng, lat] = coords;
-          window.map.setView([lat, lng], 13);
+          
+          // Calculate distance for smoother animation
+          const currentCenter = window.map.getCenter();
+          const distance = Math.sqrt(
+            Math.pow(lat - currentCenter.lat, 2) + Math.pow(lng - currentCenter.lng, 2)
+          );
+          const duration = Math.min(1 + (distance * 0.5), 3);
+          
+          window.map.flyTo([lat, lng], 13, { duration: duration });
 
           const townId = link.id ? link.id.replace(/-link$/, '') : null;
-          const marker = townId && window.townMarkers ? window.townMarkers[townId] : null;
-          if (marker) {
-            marker.openPopup();
+          if (townId && window.townMarkers[townId]) {
+            const marker = window.townMarkers[townId];
+            setTimeout(() => {
+              marker.openPopup();
+            }, duration * 500);
           }
         }
       });
     });
-  });
+    
+    // Check for town query parameter on page load
+    const urlParams = new URLSearchParams(window.location.search);
+    const townParam = urlParams.get('town');
+    if (townParam && window.townMarkers[townParam] && window.townData[townParam]) {
+      const townInfo = window.townData[townParam];
+      window.map.flyTo([townInfo.lat, townInfo.lng], 13, { duration: 0.5 });
+      setTimeout(() => {
+        window.townMarkers[townParam].openPopup();
+      }, 500);
+    }
+  }
+
+  setupTownClickHandlers();
 </script>

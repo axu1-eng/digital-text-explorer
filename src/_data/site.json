@@ -29,16 +29,12 @@
           "url": "/explore/editions"
         },
         {
-          "title": "Browse Documents by Town",
+          "title": "Browse by Town",
           "url": "/explore/towns"
         },
         {
-          "title": "Browse Documents by Archive",
-          "url": "/explore/archive"
-        },
-        {
-          "title": "Personography",
-          "url": "/explore/personography"
+          "title": "Browse Mentioned Persons",
+          "url": "/explore/persons"
         }
       ]
     },

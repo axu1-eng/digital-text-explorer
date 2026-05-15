@@ -5,12 +5,21 @@ layout: "page"
 permalink: "/explore/towns.html"
 ---
 
-
-<div class="my-6">
-  <h2 class="md:text-2xl text-xl font-medium title-font text-text-dark mb-6">Towns</h2>
-  <ul class="list-disc text-accent-light">
-    {% for town in towns %}
-    <li><a class="hover:text-accent-dark" href="#">{{ town }}</a></li>
-    {% endfor %}
-  </ul>
-</div>
+<main class="flex-1 my-6">
+  <div class="xl:container mx-auto">
+    <div class="flex md:flex-nowrap gap-12 flex-wrap-reverse w-full">
+      <div class="basis-full md:basis-1/3">
+        {% for town in towns %}
+          <div class="my-6">
+            <a class="text-accent-light hover:text-accent-dark font-bold pb-1" href="#">📍 {{ town }}</a>
+            <p class="ml-5">Also known as _____. Lorem ipsum dolor si amet. <a class="text-accent-light hover:text-accent-dark" href="/explore/documents?query={{ town | uri_encode }}">See Documents</a>
+            </p>
+          </div>
+        {% endfor %}
+      </div>
+      <div class="basis-full md:basis-2/3">
+        {% include "partials/map.html" %}
+      </div>
+    </div>
+  </div>
+</main>

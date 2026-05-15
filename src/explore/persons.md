@@ -2,6 +2,6 @@
 section: "Explore"
 title: "Personography"
 layout: "page"
-permalink: "/explore/personography.html"
+permalink: "/explore/persons.html"
 ---
 

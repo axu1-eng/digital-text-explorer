@@ -36,27 +36,26 @@ permalink: "/explore/documents.html"
               {% elsif facet.type == "numrange" %}
                   <div class="pl-2 flex flex-row w-full gap-2 items-center justify-start">
                     <input
-                      required
                       min="{{ facet.values.first }}" 
                       max="{{ facet.values.last }}"
                       type="number"
                       data-facet="{{ facet.key }}"
                       data-range="min"
-                      value="{{ facet.values.first }}"
+                      placeholder="{{ facet.values.first }}"
                       class="border rounded-md px-2 focus-visible:ring focus-visible:ring-text-light max-w-24"
                     />
                     <span class="text-center">—</span>
                     <input
-                      required
                       min="{{ facet.values.first }}" 
                       max="{{ facet.values.last }}"
                       type="number"
                       data-facet="{{ facet.key }}"
                       data-range="max"
-                      value="{{ facet.values.last }}"
+                      placeholder="{{ facet.values.last }}"
                       class="border rounded-md px-2 focus:ring focus:ring-text-light max-w-24"
                     />
                   </div>
+                  
               {% endif %}
             </li>
             {%- endfor -%}

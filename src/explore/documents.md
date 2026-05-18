@@ -8,7 +8,7 @@ permalink: "/explore/documents.html"
 {% include "components/search-header.html" %}
 <main class="flex-1">
   <section class="text-text-light body-font">
-    <div class="xl:container px-5 py-12 mx-auto">
+    <div class="container px-5 py-12 mx-auto">
       <div class="flex md:flex-nowrap gap-12 flex-wrap w-full">
         <div class="basis-full md:basis-1/3 xl:basis-1/4">
           <ul>

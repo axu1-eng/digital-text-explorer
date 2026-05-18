@@ -1,30 +1,32 @@
 ---
 layout: base
-keys:
-  - language
-  - document_type
-  - archive
-  - collection
-  - call_number
-  - page
-#  - date_digitized
-  - year
-  - date
-  - town_short
-#  - town_modern_official
-#  - pueblo
-  - primary_parties
-  - scribe
-  - witnesses
-  - transcription
-  - interlinear_analysis
-  - modern_spanish
-  - permission_file
-  - acknowledgements
+metadata:
+  - key: language
+    click: facet
+  - key: document_type
+    click: facet
+  - key: town_short
+    click: search
+  - key: archive
+    click: facet
+  - key: year
+    click: numrange
+  - key: date
+  - key: collection
+    click: search
+  - key: call_number
+  - key: page
+  - key: primary_parties
+  - key: scribe
+  - key: witnesses
+  - key: transcription
+  - key: interlinear_analysis
+  - key: modern_spanish
+  - key: permission_file
+  - key: acknowledgements
 ---
-
 <header class="bg-neutral-dark">
-  <div class="xl:container px-5 py-14 mx-auto">
+  <div class="container px-5 py-14 mx-auto">
     <div class="flex flex-wrap justify-between w-full">
       <div class="lg:w-1/2 w-full lg:mb-0">
         <h3 class="text-xs text-accent-light tracking-widest font-medium title-font mb-1 uppercase">{{ document.language }} Document</h3>
@@ -36,7 +38,7 @@ keys:
           {% if document.is_translation %} 
             <a class="group" aria-label="navigate to primary document" href="{{ document.is_translation }}.html">          
               <div class="relative h-20 w-48 rounded-tl-[2rem] rounded-br-[2rem] overflow-hidden bg-[url(../static/Tl675b.png)] bg-contain bg-center">
-                <div class="absolute top-0 right-0 bg-accent-dark text-[#f7efdc] text-lg font-bold px-2 py-1 rounded-bl-lg z-10">Zapotec</div>
+                <div class="absolute top-0 right-0 bg-red-950 text-[#f7efdc] text-lg font-bold px-2 py-1 rounded-bl-lg z-10">Zapotec</div>
                 <div class="absolute top-0 left-0 w-full h-full block transition-opacity saturate-50 opacity-80 duration-350 ease-in-out group-hover:opacity-0" style="background-color: #a46136;"></div>
               </div>
               <div class="mt-2">
@@ -82,7 +84,7 @@ keys:
 </header>
 
 <main>
-  <div class="xl:container px-5 py-14 mx-auto">
+  <div class="container px-5 py-14 mx-auto">
     <div class="flex flex-wrap -m-4">
       <div class="p-4 md:w-1/2 w-full">
         <div class="h-[80vh] bg-gray-100 bg-opacity-75 px-8 pt-16 pb-24 rounded-lg overflow-hidden text-center relative">
@@ -91,14 +93,82 @@ keys:
         </div>
       </div>
       <div class="p-4 md:w-1/2 w-full">
-        <div class="h-full px-8 pb-24 rounded-lg overflow-hidden relative">
-          {% for key in keys %}
-            {% if document[key] %}
-              <dt class="font-bold">{{ key | capitalize }}</dt>
-              <dd class="pb-4 text-text-light">{{ document[key] }}</dd>
+        <!-- create tabs that open using pure tailwind-->
+        <div class="flex flex-col">
+          <div class="flex border-b border-gray-200">
+            <button class="py-2 px-4 text-sm font-medium text-text-dark border-b-2 border-accent-light focus:outline-none" data-tab-target="#metadata">Metadata</button>
+            {% if document.transcription %}
+            <button class="py-2 px-4 text-sm font-medium text-text-dark border-b-2 border-transparent hover:border-gray-300 focus:outline-none" data-tab-target="#transcription">Transcription</button>
             {% endif %}
-          {% endfor %}
+             {% if document.english_translation %}
+            <button class="py-2 px-4 text-sm font-medium text-text-dark border-b-2 border-transparent hover:border-gray-300 focus:outline-none" data-tab-target="#english">English Translation</button>
+            {% endif %}
+            {% if document.interlinear_analysis %}
+            <button class="py-2 px-4 text-sm font-medium text-text-dark border-b-2 border-transparent hover:border-gray-300 focus:outline-none" data-tab-target="#analysis">Interlinear Analysis</button>
+            {% endif %}
+            {% if document.modern_spanish %} 
+            <button class="py-2 px-4 text-sm font-medium text-text-dark border-b-2 border-transparent hover:border-gray-300 focus:outline-none" data-tab-target="#modern_spanish">Modern Spanish</button>
+            {% endif %}
+          </div>
+          <div id="metadata" class="tab-content py-4">
+            {% for meta in metadata %}
+              {% if document[meta.key] and meta.key != "transcription" and meta.key != "interlinear_analysis" and meta.key != "modern_spanish" %}
+                {% assign display_key = meta.key | title_display %}
+                <dt class="font-bold">{{ display_key }}</dt>
+                {% if meta.click == "facet" %}
+                  <dd class="pb-4 text-text-light">
+                    {% assign facet_value = document[meta.key] %}
+                    {% assign facet_url = "/explore/documents?" | append: display_key | append: "=" | append: facet_value %}
+                    <a href="{{ facet_url }}" class="text-accent-light hover:text-accent-dark">{{ facet_value }}</a>
+                  </dd>
+                {% elsif meta.click == "search" %}
+                  <dd class="pb-4 text-text-light">
+                    {% assign search_value = document[meta.key] %}
+                    {% assign search_url = "/explore/documents?query=" | append: search_value %}
+                    <a href="{{ search_url }}" class="text-accent-light hover:text-accent-dark">{{ search_value }}</a>
+                  </dd>
+                {% elsif meta.click == "numrange" %}
+                  <dd class="pb-4 text-text-light">
+                    {% assign num_value = document[meta.key] %}
+                    {% assign query_url = "/explore/documents?" | append: meta.key | append: "-min=" | append: num_value | append: "&" | append: meta.key | append: "-max=" | append: num_value %}
+                    <a href="{{ query_url }}" class="text-accent-light hover:text-accent-dark">{{ num_value }}</a>
+                  </dd>
+                {% else %}
+                <dd class="pb-4 text-text-light">{{ document[meta.key] }}</dd>
+                {% endif %}
+              {% endif %}
+            {% endfor %}
+          </div>
+          <div id="transcription" class="tab-content py-4 hidden">
+            {% if document.transcription %}
+              {{ document.transcription | newline_to_br }}
+            {% else %}
+              <p class="text-text-light">Transcription is not available for this document.</p>
+            {% endif %}
+          </div>
+          <div id="analysis" class="tab-content py-4 hidden">
+            {% if document.interlinear_analysis %}
+              <p class="text-text-light">Interlinear analysis content is available for this document.</p>
+            {% else %}
+              <p class="text-text-light">Interlinear analysis is not available for this document.</p>
+            {% endif %}
+          </div>
+          <div id="english" class="tab-content py-4 hidden">
+            {% if document.english_translation %}
+              {{ document.english_translation | newline_to_br }}
+            {% else %}
+              <p class="text-text-light">English translation is not available for this document.</p>
+            {% endif %}
+          </div>
+          <div id="modern_spanish" class="tab-content py-4 hidden">
+            {% if document.modern_spanish %}
+              <p class="text-text-light">Modern Spanish content is available for this document.</p>
+            {% else %}
+              <p class="text-text-light">Modern Spanish translation is not available for this document.</p>
+            {% endif %}
+          </div>
         </div>
-      </div> 
+      </div>
+    </div>
   </div>
 </main>

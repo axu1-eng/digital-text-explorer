@@ -2,7 +2,11 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="initial-scale=1.0, width=device-width, viewport-fit=cover">
+  {% if document.title %}
+  <title>{{ document.title | strip_html }} | {{ site.title }}</title>
+  {% else %}
   <title>{{ title | strip_html }} | {{ site.title }}</title>
+  {% endif %}
 
 
   <link href="{{ '/css/styles.css' }}" rel="stylesheet">

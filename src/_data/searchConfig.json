@@ -9,7 +9,9 @@
     "Town",
     "Archive",
     "Transcription",
-    "Translation"
+    "Translation",
+    "Collection",
+    "Date"
   ],
   "refField": "Slug",
   "lunrFields": [
@@ -21,7 +23,9 @@
     "Translation",
     "Archive",
     "Document_Type",
-    "Year"
+    "Year",
+    "Collection",
+    "Date"
   ],
   "lunrFieldMap": {
     "Title": "Title",
@@ -31,7 +35,9 @@
     "Transcription": "Transcription",
     "Translation": "Translation",
     "Year": "Year",
-    "Town": "Town"
+    "Town": "Town",
+    "Collection": "Collection",
+    "Date": "Date"
   },
   "facetKeyToProperty": {
     "Language": "language",
@@ -56,10 +62,12 @@
       "values": [
         "Bill of Sale",
         "Testament",
-        "Land Deed",
         "Receipt",
+        "Land Deed",
         "Petition",
-        "Complaint"
+        "Complaint",
+        "Land Description",
+        "Unknown"
       ]
     },
     {

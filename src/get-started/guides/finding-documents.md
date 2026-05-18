@@ -30,7 +30,7 @@ browse_blocks:
 <div class="my-6">
   <h2 class="md:text-2xl text-xl font-medium title-font text-text-dark">Exploring By Category</h2>
 </div>
-<div class="xl:container mx-auto flex flex-wrap mb-12">
+<div class="container mx-auto flex flex-wrap mb-12">
   <div class="lg:w-1/2 w-full mb-10 lg:mb-0 rounded-lg overflow-hidden">
     <img alt="feature" class="object-cover object-center w-full" src="https://dummyimage.com/460x500">
     <p class="text-xs text-accent-light tracking-widest font-medium title-font my-2 uppercase">Above: Translation of Bill of Sale from San Jerónimo Tlacochahuaya, 1675</p>

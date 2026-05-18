@@ -18,6 +18,15 @@ export default function (eleventyConfig) {
     return encodeURIComponent(str)
   })
 
+  eleventyConfig.addFilter('title_display', function(str) {
+    if (!str) return ''
+    return str.replace(/_/g, ' ').replace(/\w\S*/g, function(txt) {
+      return txt.charAt(0).toUpperCase() + txt.substr(1).toLowerCase();
+    });
+  })
+
+  
+
   eleventyConfig.addLayoutAlias('base', 'layouts/base.html')
   eleventyConfig.addLayoutAlias('document', 'layouts/document.html')
   eleventyConfig.addLayoutAlias('home', 'layouts/home.html')

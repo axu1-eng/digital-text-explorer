@@ -1,5 +1,5 @@
-@import "tailwindcss";
 @import url('https://fonts.googleapis.com/css2?family=Alexandria:wght@100..900&display=swap');
+@import "tailwindcss";
 
 @theme {
   --font-sans: "Alexandria", sans-serif; 
@@ -14,14 +14,13 @@
 }
 
 ::selection {
-  background: #fcf49a;
+  background: #D2CFDE;
 }
 
-/* .dropdown-menu {
-  transition: all 0.2s ease-in-out;
-  overflow: hidden;
-  cursor: pointer;
-} */
+.container {
+  max-width: 1280px;
+}
+
 #navbar-spacer {
   transition: height 0.2s ease;
 }

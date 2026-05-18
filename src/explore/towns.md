@@ -8,7 +8,7 @@ permalink: "/explore/towns.html"
 ---
 
 <main class="flex-1 my-6">
-  <div class="xl:container mx-auto">
+  <div class="container mx-auto">
     <div class="flex md:flex-nowrap gap-12 xl:gap-18 flex-wrap-reverse w-full">
       <div class="basis-full md:basis-1/3">
         {% for town in towns %}

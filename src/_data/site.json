@@ -33,8 +33,8 @@
           "url": "/explore/towns"
         },
         {
-          "title": "Mentioned Persons",
-          "url": "/explore/persons"
+          "title": "People in Documents",
+          "url": "/explore/people"
         }
       ]
     },

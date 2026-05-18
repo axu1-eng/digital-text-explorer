@@ -1,8 +1,7 @@
 ---
 title: "Chan <span class='text-accent-light font-extralight'>·</span> Bienvenidos <span class='text-accent-light  font-extralight'>·</span>  Welcome"
 description: >-
-  <p class="leading-relaxed text-text-dark mb-4"><b>Ticha Digital Text Explorer</b> allows users to access and explore many interlinked layers of texts from a corpus of <a href="https://ticha.haverford.edu/en/context/" target="_blank" class="text-accent-light underline hover:no-underline">Colonial Valley Zapotec ↗</a> manuscripts and printed books, including images of the original documents, transcriptions, translations, and linguistic analysis, including morphological interlinearization.</p>
-  <p class="leading-relaxed text-text-dark mb-4"><b>Ticha</b> is an international effort to document and promote Zapotec languages and knowledge through workshops, events, and online resources provided to the public at no cost. We enouage you to browse our <a href="https://ticha.haverford.edu" target="_blank" class="text-accent-light underline hover:no-underline">main website ↗</a> to learn more about what we do, the resources we provide, and how to get involved.</p>
+  Lorem ipsum dolor si amet
 layout: "home"
 permalink: "/index.html"
 cards:

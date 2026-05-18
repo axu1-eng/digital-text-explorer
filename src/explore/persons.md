@@ -1,7 +1,9 @@
 ---
 section: "Explore"
-title: "Mentioned Persons"
+title: "People in Documents"
+description: >-
+  Lorem ipsum dolor si amet
 layout: "page"
-permalink: "/explore/persons.html"
+permalink: "/explore/people.html"
 ---
 

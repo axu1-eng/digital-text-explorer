@@ -1,6 +1,8 @@
 ---
 section: Explore
 title: "Documents by Town"
+description: >-
+  Lorem ipsum dolor si amet
 layout: "page"
 permalink: "/explore/towns.html"
 ---

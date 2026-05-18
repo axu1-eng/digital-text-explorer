@@ -22,3 +22,10 @@
   overflow: hidden;
   cursor: pointer;
 } */
+#navbar-spacer {
+  transition: height 0.2s ease;
+}
+
+#mobile-menu {
+  transition: opacity 0.2s ease;
+}

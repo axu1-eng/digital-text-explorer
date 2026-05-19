@@ -25,7 +25,8 @@
     "Document_Type",
     "Year",
     "Collection",
-    "Date"
+    "Date",
+    "Color"
   ],
   "lunrFieldMap": {
     "Title": "Title",
@@ -37,7 +38,8 @@
     "Year": "Year",
     "Town": "Town",
     "Collection": "Collection",
-    "Date": "Date"
+    "Date": "Date",
+    "Color": "Color"
   },
   "facetKeyToProperty": {
     "Language": "language",
@@ -71,44 +73,19 @@
     },
     {
       "key": "Language",
-      "type": "multiselect",
-      "values": [
-        "Zapotec",
-        "Spanish",
-        "Spanish with some Zapotec"
-      ]
+      "type": "multiselect"
     },
     {
       "key": "Document Type",
-      "type": "multiselect",
-      "values": [
-        "Bill of Sale",
-        "Testament",
-        "Receipt",
-        "Land Deed",
-        "Petition",
-        "Complaint",
-        "Land Description",
-        "Unknown"
-      ]
+      "type": "multiselect"
     },
     {
       "key": "Year",
-      "type": "numrange",
-      "values": [
-        1633,
-        1832
-      ]
+      "type": "numrange"
     },
     {
       "key": "Archive",
-      "type": "multiselect",
-      "values": [
-        "Archivo General de la Nación, Mexico",
-        "Archivo General del Poder Ejecutivo del Estado de Oaxaca, Mexico",
-        "Archivo Histórico de Notarias del Estado de Oaxaca, Mexico",
-        "Archivo Histórico de Tlacolula de Matamoros Oaxaca, Mexico"
-      ]
+      "type": "multiselect"
     }
   ]
 }

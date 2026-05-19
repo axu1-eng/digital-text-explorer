@@ -50,6 +50,11 @@
           "url": "/connect/credits"
         },
         {
+          "title": "Our Mission and Values",
+          "external": true,
+          "url": "https://ticha.haverford.edu/en/about/"
+        },
+        {
           "title": "Get in Touch",
           "external": true,
           "url": "https://ticha.haverford.edu/en/form/"

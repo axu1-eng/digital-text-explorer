@@ -38,7 +38,7 @@
   L.control.resetView().addTo(window.map);
 
   // Add markers for each town
-  var towns = {{ towns | jsonify }};
+  var towns = {{ api.towns | jsonify }};
   window.townData = {};
   towns.forEach(town => {
     const coords = JSON.parse(town.gps_coordinates);

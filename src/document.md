@@ -1,7 +1,7 @@
 ---
 layout: document
 pagination:
-    data: documents
+    data: api.documents
     size: 1
     alias: document
 permalink: "/document/{{ document.slug }}.html"

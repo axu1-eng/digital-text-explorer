@@ -9,12 +9,11 @@
 </script>
 
 <!-- Embed searchConfig as JSON to avoid Markdown/html reflow issues -->
-<script id="search-config" type="application/json">{{ searchConfig | jsonify }}</script>
+<script id="search-config" type="application/json">{{ config.search | jsonify }}</script>
 
 <script>
   window.prefixUrl    = "{{ '/' | url }}";
-  window.promisedData = fetchData("{{ '/documents.json' | url }}"); 
-  console.log("Search data promise:", window.promisedData);
+  window.promisedData = fetchData("{{ '/api/documents.json' | url }}");
 </script>
 
 <div class="w-full mb-12 align-middle">
@@ -22,7 +21,7 @@
 
     <select id="search-limit-select" class="flex-none min-w-[150px] w-fit z-10 px-2 active:border-transparent focus:border-transparent focus:ring-0 focus:outline-none bg-transparent border-none cursor-pointer">
       <option disabled>Search Within</option>
-      {%- for field in searchConfig.searchFields -%}
+      {%- for field in config.search.searchFields -%}
         <option>{{ field }}</option>
       {%- endfor -%}
     </select>

@@ -1,8 +1,8 @@
 ---
-section: "Getting Started"
+section: "Get Started"
 title: "Using the Ticha Digital Text Explorer"
 description: >-
-  The Ticha Digital Text Explorer allows users to access and explore many interlinked layers of texts from a corpus of Colonial Valley Zapotec manuscripts and printed books, including images of the original documents, transcriptions, translations, and linguistic analysis, including morphological interlinearization.
+  Lorem ipsum dolor si amet
 layout: "page"
 permalink: "/get-started/guides.html"
 browse_blocks:

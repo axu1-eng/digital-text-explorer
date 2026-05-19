@@ -5,7 +5,7 @@ layout: "base"
 permalink: "/explore/documents.html"
 ---
 
-{% include "components/search-header.html" %}
+{% include "components/headers/search.html" %}
 <main class="flex-1">
   <section class="text-text-light body-font">
     <div class="container px-5 py-12 mx-auto">

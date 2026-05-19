@@ -1,10 +1,10 @@
 ---
 section: Get Started
-title: "Finding Documents in the Ticha Digital Text Explorer"
+title: "A Linguist's Guide to the Ticha Digital Text Explorer"
 description: >-
   Lorem ipsum dolor si amet
 layout: "page"
-permalink: "/get-started/guides/finding-documents.html"
+permalink: "/get-started/guides/linguists.html"
 browse_blocks:
   - label: 'Browse by Place'
     link: ''

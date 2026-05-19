@@ -1,7 +1,7 @@
 ---
-title: "Chan <span class='text-accent-light font-extralight'>·</span> Bienvenidos <span class='text-accent-light  font-extralight'>·</span>  Welcome"
+title: "Chan <span class='text-accent-light'>·</span> Bienvenidos <span class='text-accent-light'>·</span>  Welcome"
 description: >-
-  Lorem ipsum dolor si amet
+  
 layout: "home"
 permalink: "/index.html"
 cards:

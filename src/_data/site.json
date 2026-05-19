@@ -11,6 +11,10 @@
           "url": "/get-started/guides"
         },
         {
+          "title": "A Linguist's Guide to the Ticha Digital Text Explorer",
+          "url": "/get-started/guides/linguists"
+        },
+        {
           "title": "About Colonial Valley Zapotec",
           "url": "https://ticha.haverford.edu/en/context/",
           "external": true

@@ -33,6 +33,22 @@ permalink: "/explore/documents.html"
                 </li>
                 {%- endfor -%}
               </ul>
+              {% elsif facet.type == 'booleanlist' %}
+              <ul>
+                {%- for value in facet.list -%}
+                <li>
+                  <label class="flex items-center cursor-pointer rounded px-2 py-1 transition-colors">
+                    <input 
+                      type="checkbox" 
+                      data-facet="{{ facet.key }}"
+                      data-value="{{ value.key }}"
+                      class="w-4 h-4 rounded accent-accent-alt-dark border-text-light text-accent-light focus:ring-text-light focus:ring cursor-pointer"
+                    />
+                    <span class="ml-2 text-text-dark hover:text-accent-light">{{ value.label }}</span>
+                  </label>
+                </li>
+                {%- endfor -%}
+              </ul>
               {% elsif facet.type == "numrange" %}
                   <div class="pl-2 flex flex-row w-full gap-2 items-center justify-start">
                     <input
@@ -64,7 +80,7 @@ permalink: "/explore/documents.html"
         <div class="basis-full md:basis-2/3 xl:basis-3/4">
           <div id="results-info" class="mb-6 font-bold"></div>
           <div id="active-facets" class="flex flex-wrap gap-2 mb-12"></div>
-          <div id="results" class="grid grid-cols-1 xs:grid-cols-2 sm:grid-cols-3 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-12 flex-wrap justify-between w-full"></div>
+          <div id="results" class="grid grid-cols-1 xs:grid-cols-2 sm:grid-cols-3 md:grid-cols-3 lg:grid-cols-4 gap-6 xl:gap-12 flex-wrap justify-between w-full"></div>
       </div>
     </div>
   </section>

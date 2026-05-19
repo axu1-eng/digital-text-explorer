@@ -48,6 +48,28 @@
   },
   "facets": [
     {
+      "key": "Features",
+      "type": "booleanlist",
+      "list": [
+        {
+          "label": "Digital Edition",
+          "key": "digital_edition"
+        },
+        {
+          "label": "Has Transcription",
+          "key": "transcription"
+        },
+        {
+          "label": "Has Translation Document",
+          "key": "has_translation"
+        },
+        {
+          "label": "Is Translation Document",
+          "key": "is_translation"
+        }
+      ]
+    },
+    {
       "key": "Language",
       "type": "multiselect",
       "values": [

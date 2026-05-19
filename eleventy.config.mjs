@@ -35,7 +35,7 @@ export default function (eleventyConfig) {
 
   
   return {
-    pathPrefix: '/doc-explorer',
+    pathPrefix: '/digital-text-explorer',
     markdownTemplateEngine: 'liquid'
   }
 }

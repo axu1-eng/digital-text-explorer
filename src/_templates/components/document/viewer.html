@@ -1,0 +1,39 @@
+<script src="https://unpkg.com/mirador@3.4.3/dist/mirador.min.js"></script>
+<div class="relative w-full">
+  <div id="map" class="w-full mb-20 z-0 bg-base-200 max-h-[80vh] h-[40rem]"></div>
+</div>
+
+<script type="text/javascript">
+  var mirador = Mirador.viewer({
+    id: "map",
+    window: { 
+      allowClose: false,
+      allowFullscreen: true,
+      allowMaximize: false,
+      allowTopMenuButton: true, 
+      allowWindowSideBar: false,
+      defaultView: 'single',  // (e.g. single, book, gallery) 
+      hideWindowTitle: true,
+      panels: { 
+        info: false,
+        attribution: false,
+        canvas: false,
+        annotations: false,
+        search: false,
+        layers: false,
+      }
+    },
+    thumbnailNavigation: {
+      defaultPosition: 'off',
+      displaySettings: false
+    },
+    windows: [ 
+      {
+        manifestId: 'https://ticha-iiif.s3.us-east-1.amazonaws.com/ticha/{{ document.slug }}/manifest.json'
+      }
+    ],
+    workspaceControlPanel: {
+      enabled: false
+    }
+  });
+</script>

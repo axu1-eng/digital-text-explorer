@@ -26,7 +26,7 @@
         <!-- <div class="basis-1/6"> -->
           {% if document.is_translation %} 
             <a class="group" aria-label="navigate to primary document" href="{{ document.is_translation }}.html">          
-              <div class="relative h-20 w-48 rounded-tl-[2rem] rounded-br-[2rem] overflow-hidden bg-[url(../static/Tl675b.png)] bg-contain bg-center">
+              <div class="relative h-20 w-48 rounded-tl-[2rem] rounded-br-[2rem] overflow-hidden bg-cover bg-center" style="background-image: url('../static/thumbnails/{{ document.is_translation }}.jpg');">
                 <div class="absolute top-0 right-0 bg-red-950 text-[#f7efdc] text-lg font-bold px-2 py-1 rounded-bl-lg z-10">Zapotec</div>
                 <div class="absolute top-0 left-0 w-full h-full block transition-opacity saturate-50 opacity-80 duration-350 ease-in-out group-hover:opacity-0" style="background-color: #a46136;"></div>
               </div>
@@ -38,7 +38,7 @@
             </a>
           {% elsif document.has_translation %}
             <a class="group" aria-label="navigate to primary document" href="{{ document.has_translation }}.html">          
-              <div class="relative h-20 w-48 rounded-tl-[2rem] rounded-br-[2rem] overflow-hidden bg-[url(../static/Tl675b.png)] bg-contain bg-center">
+              <div class="relative h-20 w-48 rounded-tl-[2rem] rounded-br-[2rem] overflow-hidden bg-cover bg-center" style="background-image: url('../static/thumbnails/{{ document.has_translation }}.jpg');">
                 <div class="absolute top-0 right-0 bg-accent-dark text-[#f7efdc] text-lg font-bold px-2 py-1 rounded-bl-lg z-10">Spanish</div>
                 <div class="absolute top-0 left-0 w-full h-full block transition-opacity saturate-50 opacity-80 duration-350 ease-in-out group-hover:opacity-0" style="background-color: #67781d;"></div>
               </div>

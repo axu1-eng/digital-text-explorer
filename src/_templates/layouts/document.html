@@ -31,10 +31,7 @@ metadata:
   <div class="container px-5 py-14 mx-auto">
     <div class="flex flex-wrap -m-4">
       <div class="p-4 md:w-1/2 w-full">
-        <div class="h-[80vh] bg-gray-100 bg-opacity-75 px-8 pt-16 pb-24 rounded-lg overflow-hidden text-center relative">
-          <h2 class="tracking-widest text-xs title-font font-medium text-text-light mb-1">Document Viewer</h2>
-          <p class="leading-relaxed mb-3">TO DO</p>
-        </div>
+        {% include "components/document/viewer.html" %}
       </div>
       <div class="p-4 md:w-1/2 w-full">
         <!-- create tabs that open using pure tailwind-->
@@ -78,7 +75,7 @@ metadata:
                     <a href="{{ query_url }}" class="text-accent-light hover:text-accent-dark">{{ num_value }}</a>
                   </dd>
                 {% else %}
-                <dd class="pb-4 text-text-light">{{ document[meta.key] }}</dd>
+                <dd class="pb-4 text-text-light break-words">{{ document[meta.key] }}</dd>
                 {% endif %}
               {% endif %}
             {% endfor %}

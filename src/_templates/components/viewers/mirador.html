@@ -28,7 +28,11 @@
       allowMaximize: false,
       allowTopMenuButton: false, 
       allowWindowSideBar: false,
-      defaultView: {% if document.digital_edition %}'book'{% else %}'single'{% endif %},
+      {% if document.document_type | contains: 'Text' %}
+      defaultView: 'book',
+      {% else %}
+      defaultView: 'single',
+      {% endif %}
       hideWindowTitle: true,
       panels: { 
         info: false,
@@ -40,8 +44,9 @@
       }
     },
     thumbnailNavigation: {
-      defaultPosition: {% if document.digital_edition %}'far-bottom'{% else %}'off'{% endif %},
+      defaultPosition: 'far-right',
       showThumbnailLabels: false,
+      width: {% if document.document_type | contains: 'Text' %}40{% else %}80{% endif %}
     },
     windows: [ 
       {

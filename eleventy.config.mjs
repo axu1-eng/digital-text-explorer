@@ -23,7 +23,10 @@ export default function (eleventyConfig) {
       return txt.charAt(0).toUpperCase() + txt.substr(1).toLowerCase();
     });
   })
-
+  eleventyConfig.addFilter('contains', function(text, str) {
+    if (!text || !str) return false
+    return text.includes(str)
+  });
   eleventyConfig.addLayoutAlias('base', 'layouts/base.html')
   eleventyConfig.addLayoutAlias('document', 'layouts/document.html')
   eleventyConfig.addLayoutAlias('home', 'layouts/home.html')

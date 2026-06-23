@@ -28,12 +28,12 @@ browse_blocks:
     icon: ''
 ---
 <div class="my-6">
-  <h2 class="md:text-2xl text-xl font-medium title-font text-text-dark">Exploring By Category</h2>
+  <h2 data-i18n="guides_exploring_by_category" class="md:text-2xl text-xl font-medium title-font text-text-dark">Exploring By Category</h2>
 </div>
 <div class="container mx-auto flex flex-wrap mb-12">
   <div class="lg:w-1/2 w-full mb-10 lg:mb-0 rounded-lg overflow-hidden">
     <img alt="feature" class="object-cover object-center w-full" src="https://dummyimage.com/460x500">
-    <p class="text-xs text-accent-light tracking-widest font-medium title-font my-2 uppercase">Above: Translation of Bill of Sale from San Jerónimo Tlacochahuaya, 1675</p>
+    <p class="text-xs text-accent-light tracking-widest font-medium title-font my-2 uppercase" data-i18n="guides_translation_of_Bill_of_Sale_above">Above: Translation of Bill of Sale from San Jerónimo Tlacochahuaya, 1675</p>
   </div>
   <div class="flex flex-col flex-wrap lg:py-6 -mb-10 lg:w-1/2 lg:pl-12 lg:text-left text-center">
     {% for block in browse_blocks %}
@@ -45,7 +45,7 @@ browse_blocks:
           </div>
           <h2 class="text-text-dark text-lg title-font font-medium mb-3">{{ block.label }}</h2>
         </div>
-        <p class="leading-relaxed text-sm">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc pulvinar accumsan ex ultrices congue.</p>
+        <p data-i18n="finding_documents_guide_leading_relaxed_text" class="leading-relaxed text-sm">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc pulvinar accumsan ex ultrices congue.</p>
       </div>
     </div>
     {% endfor %}

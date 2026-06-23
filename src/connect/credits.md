@@ -5,4 +5,4 @@ description: ""
 layout: "page"
 permalink: "/connect/credits.html"
 ---
-Testing
+<p data-i18n="Testing">Testing</p>

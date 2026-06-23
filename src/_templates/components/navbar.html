@@ -14,7 +14,7 @@
         {% if item.sub.size %}
         <div class="relative group">
           <button type="button" class="dropdown-toggle flex items-center justify-start p-2 gap-2 cursor-pointer group-hover:text-accent-dark active:text-accent-dark transition-all duration-200 delay-75 group-hover:bg-neutral-light group-focus-within:bg-neutral-light group-open:bg-neutral-light rounded-t-lg px-2" aria-expanded="false">
-            <span class="select-none font-bold">{{ item.title }}</span>
+            <span data-i18n="{{ item.title }}" class="select-none font-bold">{{ item.title }}</span>
             <svg class="w-3 h-3 pointer-events-none" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
               <path stroke-linecap="round" stroke-linejoin="round" d="m19.5 8.25-7.5 7.5-7.5-7.5" />
             </svg>
@@ -22,26 +22,25 @@
           <div class="dropdown-menu absolute left-0 text-accent-light top-full opacity-0 pointer-events-none bg-neutral-light rounded-b-lg rounded-tr-lg px-4 py-4 w-max transition-all duration-200 delay-75 ease-out group-hover:opacity-100 group-hover:pointer-events-auto group-focus-within:opacity-100 group-focus-within:translate-y-0 group-focus-within:pointer-events-auto">
             {% for sub in item.sub %}
               {% if sub.external %}
-              <a href="{{ sub.url }}" target="_blank" class="block pb-2 leading-snug hover:text-accent-dark">{{ sub.title }} ↗</a>
+              <a href="{{ sub.url }}" data-i18n="{{ sub.title }}" target="_blank" class="show-en block pb-2 leading-snug hover:text-accent-dark">{{ sub.title }} ↗</a>
+              <a href="{{ sub.url_es }}" data-i18n="{{ sub.title }}" target="_blank" class="show-es block pb-2 leading-snug hover:text-accent-dark">{{ sub.title }} ↗</a>
               {% else %}
-              <a href="{{ sub.url }}" class="block pb-2 leading-tight hover:text-accent-dark">{{ sub.title }}</a>
+              <a href="{{ sub.url }}" data-i18n="{{ sub.title }}" class="show-en block pb-2 leading-tight hover:text-accent-dark">{{ sub.title }}</a>
+              <a href="{{ sub.url_es }}" data-i18n="{{ sub.title }}" class="show-es block pb-2 leading-tight hover:text-accent-dark">{{ sub.title }}</a>
               {% endif %}
             {% endfor %}
           </div>
         </div>
         {% else %}
-        <a href="{{ item.url }}" class="font-bold text-accent-light hover:text-accent-dark">{{ item.title }}</a>
+        <a href="{{ item.url }}" data-i18n="{{ item.title }}" class="show-en font-bold text-accent-light hover:text-accent-dark">{{ item.title }}</a>
+        <a href="{{ item.url_es }}" data-i18n="{{ item.title }}" class="show-es font-bold text-accent-light hover:text-accent-dark">{{ item.title }}</a>
         {% endif %}
       {% endfor %}
     </div>
 
-    <div class="hidden lg:inline-flex items-center gap-4">
-      <a class="show-es font-bold text-accent-light hover:text-accent-dark cursor-pointer" onclick="changeLanguage('en')">🇺🇸 English</a>
+    <div data-i18n="LanguageSwitcherButtonsDesktop" class="hidden lg:inline-flex items-center gap-4">
       <a class="show-en font-bold text-accent-light hover:text-accent-dark cursor-pointer" onclick="changeLanguage('es')">🇲🇽 Español</a>
       <a data-i18n="navbar_ticha_website_top_right" href="https://ticha.haverford.edu/en/" target="_blank" class="show-en bg-accent-light inline-flex items-center hover:bg-accent-dark text-neutral-light rounded-lg px-3 py-1 text-sm font-bold">
-        Ticha Website ↗
-      </a>
-      <a data-i18n="navbar_ticha_website_top_right" href="https://ticha.haverford.edu/es/" target="_blank" class="show-es bg-accent-light inline-flex items-center hover:bg-accent-dark text-neutral-light rounded-lg px-3 py-1 text-sm font-bold">
         Ticha Website ↗
       </a>
     </div>
@@ -51,8 +50,9 @@
       <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
         <path stroke-linecap="round" stroke-linejoin="round" d="M4 7h16M4 12h16M4 17h16" />
       </svg>
-      <a class="show-es font-bold text-accent-light hover:text-accent-dark cursor-pointer" onclick="changeLanguage('en')">🇺🇸 EN</a>
-      <a class="show-en font-bold text-accent-light hover:text-accent-dark cursor-pointer" onclick="changeLanguage('es')">🇲🇽 ES</a>
+      <div data-i18n="languageSwitcherButtonMobile">
+        <a class="font-bold text-accent-light hover:text-accent-dark cursor-pointer" onclick="changeLanguage('es')">🇲🇽 ES</a>
+      </div>
     </button>
   </div>
 
@@ -90,11 +90,8 @@
       {% endfor %}
     </div>
 
-    <div class="mt-8 border-t border-white/30 pt-4">
+    <div data-i18n="tichaWebsiteButtonMobile" class="mt-8 border-t border-white/30 pt-4">
       <a data-i18n="navbar_ticha_website_top_right" href="https://ticha.haverford.edu/en/" target="_blank" class="show-en inline-flex items-center text-accent-light hover:text-accent-dark">
-        Ticha Website ↗
-      </a>
-      <a data-i18n="navbar_ticha_website_top_right" href="https://ticha.haverford.edu/es/" target="_blank" class="show-es inline-flex items-center text-accent-light hover:text-accent-dark">
         Ticha Website ↗
       </a>
     </div>

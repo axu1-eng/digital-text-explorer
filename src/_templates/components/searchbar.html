@@ -20,15 +20,15 @@
   <div class="join relative mt-2 flex justify-between items-center w-full shadow rounded-md bg-[#f8f4ea]">
 
     <select id="search-limit-select" class="flex-none min-w-[150px] w-fit z-10 px-2 active:border-transparent focus:border-transparent focus:ring-0 focus:outline-none bg-transparent border-none cursor-pointer">
-      <option disabled>Search Within</option>
+      <option data-i18n="searchbar_search_within" disabled>Search Within</option>
       {%- for field in config.search.searchFields -%}
-        <option>{{ field }}</option>
+        <option data-i18n="{{ field }}">{{ field }}</option>
       {%- endfor -%}
     </select>
 
     <div class="ml-4 border-r h-10"></div>
 
-    <div class="grow ml-2">
+    <div data-i18n="Searchbar_searchbar" class="grow ml-2">
       <input
         id="search-input"
         type="text"

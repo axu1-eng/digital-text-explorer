@@ -43,7 +43,7 @@ browse_blocks:
           <div class="w-6 h-6 inline-flex items-center justify-center rounded-full bg-red-100 text-accent-light mr-2 float-left">
             <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="w-3 h-3" viewBox="0 0 24 24"><path d="M20 21v-2a4 4 0 00-4-4H8a4 4 0 00-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg>
           </div>
-          <h2 class="text-text-dark text-lg title-font font-medium mb-3">{{ block.label }}</h2>
+          <h2 data-i18n="{{ block.label }}" class="text-text-dark text-lg title-font font-medium mb-3">{{ block.label }}</h2>
         </div>
         <p data-i18n="linguists_guide_leading_relaxed_text" class="leading-relaxed text-sm">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc pulvinar accumsan ex ultrices congue.</p>
       </div>

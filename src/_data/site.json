@@ -8,15 +8,18 @@
       "sub": [
         {
           "title": "Using the Ticha Digital Text Explorer",
-          "url": "/get-started/guides"
+          "url": "/get-started/guides",
+          "url_es": "/get-started/guides"
         },
         {
           "title": "A Linguist's Guide to the Ticha Digital Text Explorer",
-          "url": "/get-started/guides/linguists"
+          "url": "/get-started/guides/linguists",
+          "url_es": "/get-started/guides/linguists"
         },
         {
           "title": "About Colonial Valley Zapotec",
           "url": "https://ticha.haverford.edu/en/context/",
+          "url_es": "https://ticha.haverford.edu/es/context/",
           "external": true
         }
       ]
@@ -26,19 +29,23 @@
       "sub": [
         {
           "title": "All Documents",
-          "url": "/explore/documents"
+          "url": "/explore/documents",
+          "url_es": "/explore/documents"
         },
         {
           "title": "Digital Editons",
-          "url": "/explore/editions"
+          "url": "/explore/editions",
+          "url_es": "/explore/editions"
         },
         {
           "title": "Documents by Town",
-          "url": "/explore/towns"
+          "url": "/explore/towns",
+          "url_es": "/explore/towns"
         },
         {
           "title": "People in Documents",
-          "url": "/explore/people"
+          "url": "/explore/people",
+          "url_es": "/explore/people"
         }
       ]
     },
@@ -47,17 +54,20 @@
       "sub": [
         {
           "title": "Credits and Acknowledgements",
-          "url": "/connect/credits"
+          "url": "/connect/credits",
+          "url_es": "/connect/credits"
         },
         {
           "title": "Our Mission and Values",
           "external": true,
-          "url": "https://ticha.haverford.edu/en/about/"
+          "url": "https://ticha.haverford.edu/en/about/",
+          "url_es": "https://ticha.haverford.edu/es/about/"
         },
         {
           "title": "Get in Touch",
           "external": true,
-          "url": "https://ticha.haverford.edu/en/form/"
+          "url": "https://ticha.haverford.edu/en/form/",
+          "url_es": "https://ticha.haverford.edu/es/form/"
         }
       ]
     },
@@ -66,12 +76,14 @@
       "sub": [
         {
           "title": "Ticha Diccionario Colonial Valley Zapotec",
-          "url": "https://www.webonary.org/colonial_valley_zapotec/",
+          "url": "https://www.webonary.org/colonial_valley_zapotec/?lang=en",
+          "url_es": "https://www.webonary.org/colonial_valley_zapotec/",
           "external": true
         },
         {
           "title": "Caseidyneën Saën Teaching Modules",
           "url": "https://ticha.haverford.edu/en/lessons/",
+          "url_es": "https://ticha.haverford.edu/es/lessons/",
           "external": true
         }
       ]

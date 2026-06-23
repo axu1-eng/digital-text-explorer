@@ -3,20 +3,18 @@
     <div class="flex flex-wrap justify-between w-full">
       <div class="lg:w-1/2 w-full lg:mb-0">
         {% if document.digital_edition %}
-          <h3 class="text-xs text-accent-light tracking-widest font-medium title-font mb-4 uppercase">
-            Explore /
-            <a href="/explore/editions">Digital Editions</a>
+          <h3 data-i18n="documents_explore_digital_editions" class="text-xs text-accent-light tracking-widest font-medium title-font mb-4 uppercase">
+            Explore / <a href="/digital-text-explorer/explore/editions">Digital Editions</a>
           </h3>
         {% else %}
-          <h3 class="text-xs text-accent-light tracking-widest font-medium title-font mb-4 uppercase">
-            Explore /
-            <a href="/explore/documents">All Documents</a>
+          <h3 data-i18n="documents_explore_all_documents" class="text-xs text-accent-light tracking-widest font-medium title-font mb-4 uppercase">
+            Explore / <a href="/digital-text-explorer/explore/documents">All Documents</a>
           </h3>
         {% endif %}
         <h1 class="sm:text-3xl text-2xl font-medium title-font mb-2 text-text-dark">
           {% if document.digital_edition %}
           <div class="h-6 w-6 inline-block bg-[url(../static/flower.png)] bg-cover bg-center px-2 py-1 rounded-tr-lg z-10"></div>
-          Digital Edition · 
+          <span data-i18n="Digital_Edition_·">Digital Edition ·</span>
           {% endif %}
           {{ document.title }}
         </h1>
@@ -27,11 +25,11 @@
           {% if document.is_translation %} 
             <a class="group" aria-label="navigate to primary document" href="{{ document.is_translation }}.html">          
               <div class="relative h-20 w-48 rounded-tl-[2rem] rounded-br-[2rem] overflow-hidden bg-cover bg-center" style="background-image: url('../static/thumbnails/{{ document.is_translation }}.jpg');">
-                <div class="absolute top-0 right-0 bg-red-950 text-[#f7efdc] text-lg font-bold px-2 py-1 rounded-bl-lg z-10">Zapotec</div>
+                <div data-i18n="Zapotec" class="absolute top-0 right-0 bg-red-950 text-[#f7efdc] text-lg font-bold px-2 py-1 rounded-bl-lg z-10">Zapotec</div>
                 <div class="absolute top-0 left-0 w-full h-full block transition-opacity saturate-50 opacity-80 duration-350 ease-in-out group-hover:opacity-0" style="background-color: #a46136;"></div>
               </div>
               <div class="mt-2">
-                <h2 class="text-text-dark text-lg title-font font-bold leading-tight w-48">
+                <h2 data-i18n="see_primary_document_label" class="text-text-dark text-lg title-font font-bold leading-tight w-48">
                   See the Primary Document
                 </h2>
               </div>
@@ -39,11 +37,11 @@
           {% elsif document.has_translation %}
             <a class="group" aria-label="navigate to primary document" href="{{ document.has_translation }}.html">          
               <div class="relative h-20 w-48 rounded-tl-[2rem] rounded-br-[2rem] overflow-hidden bg-cover bg-center" style="background-image: url('../static/thumbnails/{{ document.has_translation }}.jpg');">
-                <div class="absolute top-0 right-0 bg-accent-dark text-[#f7efdc] text-lg font-bold px-2 py-1 rounded-bl-lg z-10">Spanish</div>
+                <div data-i18n="Spanish" class="absolute top-0 right-0 bg-accent-dark text-[#f7efdc] text-lg font-bold px-2 py-1 rounded-bl-lg z-10">Spanish</div>
                 <div class="absolute top-0 left-0 w-full h-full block transition-opacity saturate-50 opacity-80 duration-350 ease-in-out group-hover:opacity-0" style="background-color: #67781d;"></div>
               </div>
               <div class="mt-2">
-                <h2 class="text-text-dark text-lg title-font font-bold leading-tight w-48">
+                <h2 data-i18n="see_translation_document_label" class="text-text-dark text-lg title-font font-bold leading-tight w-48">
                   See the Translation Document
                 </h2>
               </div>

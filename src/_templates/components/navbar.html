@@ -3,7 +3,7 @@
     <div class="flex flex-1 flex-wrap items-center gap-4">
       <a href="/" class="text-accent-light hover:text-accent-dark flex title-font font-medium items-center">
         <img src="/static/ticha1.gif" alt="Ticha Logo" class="h-6" />
-        <span class="text-2xl ml-1 text-nowrap tracking-tight font-light">
+        <span data-i18n="navbar_ticha_digital_text_explorer" class="text-2xl ml-1 text-nowrap tracking-tight font-light">
           <span class="font-bold text-accent-dark">Ticha</span> Digital Text Explorer
         </span>
       </a>
@@ -35,17 +35,21 @@
       {% endfor %}
     </div>
 
-    <div class="hidden lg:inline-flex items-center">
-      <a href="https://ticha.haverford.edu" target="_blank" class="bg-accent-light inline-flex items-center hover:bg-accent-dark text-neutral-light rounded-lg px-3 py-1 text-sm font-bold">
+    <div class="hidden lg:inline-flex items-center gap-4">
+      <a class="show-es font-bold text-accent-light hover:text-accent-dark cursor-pointer" onclick="changeLanguage('en')">🇺🇸 English</a>
+      <a class="show-en font-bold text-accent-light hover:text-accent-dark cursor-pointer" onclick="changeLanguage('es')">🇲🇽 Español</a>
+      <a data-i18n="navbar_ticha_website_top_right" href="https://ticha.haverford.edu" target="_blank" class="bg-accent-light inline-flex items-center hover:bg-accent-dark text-neutral-light rounded-lg px-3 py-1 text-sm font-bold">
         Ticha Website ↗
       </a>
     </div>
 
-    <button id="mobile-menu-toggle" class="lg:hidden cursor-pointer inline-flex items-center justify-center rounded-lg p-2 text-text-dark hover:bg-white/15 focus:outline-none focus:ring-2 focus:ring-accent-light" aria-expanded="false" aria-controls="mobile-menu">
-      <span class="sr-only">Open navigation menu</span>
+    <button id="mobile-menu-toggle" class="gap-4 lg:hidden cursor-pointer inline-flex items-center justify-center rounded-lg p-2 text-text-dark hover:bg-white/15 focus:outline-none focus:ring-2 focus:ring-accent-light" aria-expanded="false" aria-controls="mobile-menu">
+      <span data-i18n="navbar_open_nav_menu" class="sr-only">Open navigation menu</span>
       <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
         <path stroke-linecap="round" stroke-linejoin="round" d="M4 7h16M4 12h16M4 17h16" />
       </svg>
+      <a class="show-es font-bold text-accent-light hover:text-accent-dark cursor-pointer" onclick="changeLanguage('en')">🇺🇸 EN</a>
+      <a class="show-en font-bold text-accent-light hover:text-accent-dark cursor-pointer" onclick="changeLanguage('es')">🇲🇽 ES</a>
     </button>
   </div>
 
@@ -53,7 +57,7 @@
     <div class="flex items-center justify-between border-b border-white/30 pb-4">
       <a href="/" class="text-accent-light inline-flex items-center gap-2">
         <img src="/static/ticha1.gif" alt="Ticha Logo" class="h-8" />
-        <span class="ml-2 text-xl text-nowrap">Ticha Digital Text Explorer</span>
+        <span data-i18n="navbar_ticha_digital_text_explorer_mobile_menu" class="ml-2 text-xl text-nowrap">Ticha Digital Text Explorer</span>
       </a>
       <button id="mobile-menu-close" class="rounded-lg p-2 text-text-dark cursor-pointer hover:bg-white/15 focus:outline-none focus:ring-2 focus:ring-accent-light" aria-label="Close navigation menu">
         <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
@@ -84,7 +88,7 @@
     </div>
 
     <div class="mt-8 border-t border-white/30 pt-4">
-      <a href="https://ticha.haverford.edu" target="_blank" class="inline-flex items-center text-accent-light hover:text-accent-dark">
+      <a data-i18n="navbar_ticha_website_top_right" href="https://ticha.haverford.edu" target="_blank" class="inline-flex items-center text-accent-light hover:text-accent-dark">
         Ticha Website ↗
       </a>
     </div>

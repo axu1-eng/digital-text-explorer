@@ -37,18 +37,18 @@ metadata:
         <!-- create tabs that open using pure tailwind-->
         <div class="flex flex-col">
           <div class="flex border-b border-gray-200">
-            <button class="py-2 px-4 text-sm font-medium text-text-dark border-b-2 border-accent-light focus:outline-none" data-tab-target="#metadata">Metadata</button>
+            <button data-i18n="document_metadata_title" class="py-2 px-4 text-sm font-medium text-text-dark border-b-2 border-accent-light focus:outline-none" data-tab-target="#metadata">Metadata</button>
             {% if document.transcription %}
-            <button class="py-2 px-4 text-sm font-medium text-text-dark border-b-2 border-transparent hover:border-gray-300 focus:outline-none" data-tab-target="#transcription">Transcription</button>
+            <button data-i18n="document_transcription_title" class="py-2 px-4 text-sm font-medium text-text-dark border-b-2 border-transparent hover:border-gray-300 focus:outline-none" data-tab-target="#transcription">Transcription</button>
             {% endif %}
              {% if document.english_translation %}
-            <button class="py-2 px-4 text-sm font-medium text-text-dark border-b-2 border-transparent hover:border-gray-300 focus:outline-none" data-tab-target="#english">English Translation</button>
+            <button data-i18n="document_english_transcription_title" class="py-2 px-4 text-sm font-medium text-text-dark border-b-2 border-transparent hover:border-gray-300 focus:outline-none" data-tab-target="#english">English Translation</button>
             {% endif %}
             {% if document.interlinear_analysis %}
-            <button class="py-2 px-4 text-sm font-medium text-text-dark border-b-2 border-transparent hover:border-gray-300 focus:outline-none" data-tab-target="#analysis">Interlinear Analysis</button>
+            <button data-i18n="document_interlinear_analysis_title" class="py-2 px-4 text-sm font-medium text-text-dark border-b-2 border-transparent hover:border-gray-300 focus:outline-none" data-tab-target="#analysis">Interlinear Analysis</button>
             {% endif %}
             {% if document.modern_spanish %} 
-            <button class="py-2 px-4 text-sm font-medium text-text-dark border-b-2 border-transparent hover:border-gray-300 focus:outline-none" data-tab-target="#modern_spanish">Modern Spanish</button>
+            <button data-i18n="document_modern_spanish_title" class="py-2 px-4 text-sm font-medium text-text-dark border-b-2 border-transparent hover:border-gray-300 focus:outline-none" data-tab-target="#modern_spanish">Modern Spanish</button>
             {% endif %}
           </div>
           <div id="metadata" class="tab-content py-4">
@@ -84,28 +84,28 @@ metadata:
             {% if document.transcription %}
               {{ document.transcription | newline_to_br }}
             {% else %}
-              <p class="text-text-light">Transcription is not available for this document.</p>
+              <p data-i18n="transcription_not_available" class="text-text-light">Transcription is not available for this document.</p>
             {% endif %}
           </div>
           <div id="analysis" class="tab-content py-4 hidden">
             {% if document.interlinear_analysis %}
-              <p class="text-text-light">Interlinear analysis content is available for this document.</p>
+              <p data-i18n="interlinear_analysis_available" class="text-text-light">Interlinear analysis content is available for this document.</p>
             {% else %}
-              <p class="text-text-light">Interlinear analysis is not available for this document.</p>
+              <p data-i18n="interlinear_analysis_not_available" class="text-text-light">Interlinear analysis is not available for this document.</p>
             {% endif %}
           </div>
           <div id="english" class="tab-content py-4 hidden">
             {% if document.english_translation %}
               {{ document.english_translation | newline_to_br }}
             {% else %}
-              <p class="text-text-light">English translation is not available for this document.</p>
+              <p data-i18n="english_translation_not_available" class="text-text-light">English translation is not available for this document.</p>
             {% endif %}
           </div>
           <div id="modern_spanish" class="tab-content py-4 hidden">
             {% if document.modern_spanish %}
-              <p class="text-text-light">Modern Spanish content is available for this document.</p>
+              <p data-i18n="modern_spanish_available" class="text-text-light">Modern Spanish content is available for this document.</p>
             {% else %}
-              <p class="text-text-light">Modern Spanish translation is not available for this document.</p>
+              <p data-i18n="modern_spanish_not_available" class="text-text-light">Modern Spanish translation is not available for this document.</p>
             {% endif %}
           </div>
         </div>

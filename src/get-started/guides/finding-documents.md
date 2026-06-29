@@ -28,7 +28,7 @@ browse_blocks:
     icon: ''
 ---
 <div class="my-6">
-  <h2 data-i18n="guides_exploring_by_category" class="md:text-2xl text-xl font-medium title-font text-text-dark">Exploring By Category</h2>
+  <h2 data-i18n="guides_exploring_by_category" id="main-content" tabindex="-1" class="md:text-2xl text-xl font-medium title-font text-text-dark">Exploring By Category</h2>
 </div>
 <div class="container mx-auto flex flex-wrap mb-12">
   <div class="lg:w-1/2 w-full mb-10 lg:mb-0 rounded-lg overflow-hidden">

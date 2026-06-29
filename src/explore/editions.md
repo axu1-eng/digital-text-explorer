@@ -8,7 +8,7 @@ permalink: "/explore/editions.html"
 ---
 {% assign digital_editions = api.documents | where: 'digital_edition' | reverse %}
 
-<div class="flex flex-wrap gap-12 justify-start">
+<div class="flex flex-wrap gap-12 justify-start" id="main-content" tabindex="-1">
   {%- for edition in digital_editions -%}
     <div class="group xl:w-1/5 lg:w-1/4 md:w-1/3 w-full transition duration-250 ease-in-out hover:scale-105">
       {%- if edition.id -%}

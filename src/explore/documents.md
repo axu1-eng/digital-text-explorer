@@ -6,7 +6,7 @@ permalink: "/explore/documents.html"
 ---
 
 {% include "components/headers/search.html" %}
-<main class="flex-1">
+<main class="flex-1" id="main-content" tabindex="-1">
   <section class="text-text-light body-font">
     <div class="container px-5 py-12 mx-auto">
       <div class="flex md:flex-nowrap gap-12 flex-wrap w-full">

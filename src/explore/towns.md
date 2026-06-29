@@ -12,7 +12,7 @@ permalink: "/explore/towns.html"
     <div class="flex md:flex-nowrap gap-12 xl:gap-18 flex-wrap-reverse w-full">
       <div class="basis-full md:basis-1/3">
         {% for town in api.towns %}
-          <div class="my-2">
+          <div class="my-2" id="main-content" tabindex="-1">
             📍 <a id="{{ town.id }}-link" class="text-accent-light hover:text-accent-dark hover:underline font-bold pb-1" href="#" data-gps="{{ town.gps_coordinates | escape }}">{{ town.town_modern_official }}</a>
             <!-- <a class="text-accent-light hover:text-accent-dark" href="/explore/documents?query={{ town.town_short | uri_encode }}">See Documents</a> -->
             </p>

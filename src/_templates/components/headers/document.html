@@ -3,13 +3,13 @@
     <div class="flex flex-wrap justify-between w-full">
       <div class="lg:w-1/2 w-full lg:mb-0">
         {% if document.digital_edition %}
-          <h3 data-i18n="documents_explore_digital_editions" class="text-xs text-accent-light tracking-widest font-medium title-font mb-4 uppercase">
+          <p data-i18n="documents_explore_digital_editions" class="text-xs text-accent-light tracking-widest font-medium title-font mb-4 uppercase">
             Explore / <a href="/digital-text-explorer/explore/editions">Digital Editions</a>
-          </h3>
+          </p>
         {% else %}
-          <h3 data-i18n="documents_explore_all_documents" class="text-xs text-accent-light tracking-widest font-medium title-font mb-4 uppercase">
+          <p data-i18n="documents_explore_all_documents" class="text-xs text-accent-light tracking-widest font-medium title-font mb-4 uppercase">
             Explore / <a href="/digital-text-explorer/explore/documents">All Documents</a>
-          </h3>
+          </p>
         {% endif %}
         <h1 class="sm:text-3xl text-2xl font-medium title-font mb-2 text-text-dark">
           {% if document.digital_edition %}

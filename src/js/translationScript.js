@@ -34,6 +34,8 @@ window.addEventListener("DOMContentLoaded", async () => {
   }
   else if (userPreferredLanguage === 'es') {
     document.querySelectorAll(".show-en").forEach(el => el.style.display = "none");
+    const htmlClass = document.querySelector("html");
+    htmlClass.setAttribute("lang", "es");
   }
   const langData = await fetchLanguageData(userPreferredLanguage);
   updateContent(langData);

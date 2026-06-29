@@ -23,7 +23,7 @@ permalink: "/explore/editions.html"
         <div class="absolute top-0 left-0 w-full h-full block transition-opacity saturate-50 opacity-80 duration-350 ease-in-out group-hover:opacity-0 rounded-tl-[3rem] rounded-br-[3rem]" style="background-color: #{{edition.color}};"></div>
       </a>
       <div class="mt-4">
-        <h2 class="text-text-dark title-font text-lg font-bold leading-tight"><span data-i18n="digital_edition_text" class="group-hover:text-accent-dark underline">Digital Edition</span> · {{ edition.title }}</h2>
+        <p class="text-text-dark title-font text-lg font-bold leading-tight"><span data-i18n="digital_edition_text" class="group-hover:text-accent-dark underline">Digital Edition</span> · {{ edition.title }}</p>
         <p class="mt-1 text-xs">{{ edition.subtitle }}</p>
       </div>
     </div>

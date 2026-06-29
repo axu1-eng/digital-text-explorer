@@ -239,12 +239,12 @@ export async function initUI({ idx, resultsLookupMap, documents }) {
           </div>
           <div class="mt-4">
           ${ item.title.startsWith('Translation') ?
-            `<h2 class="text-text-dark title-font text-lg font-bold leading-tight"><span class="underline group-hover:text-accent-light">${item.title.split(' ')[0]}</span> ${item.title.split(' ').slice(1).join(' ')}</h2>`
+            `<p class="text-text-dark title-font text-lg font-bold leading-tight"><span class="underline group-hover:text-accent-light">${item.title.split(' ')[0]}</span> ${item.title.split(' ').slice(1).join(' ')}</p>`
             :
             item.digital_edition ?
-            `<h2 class="text-text-dark title-font text-lg font-bold leading-tight"><span class="underline group-hover:text-accent-light">Digital Edition</span> ${item.title}</h2>`
+            `<p class="text-text-dark title-font text-lg font-bold leading-tight"><span class="underline group-hover:text-accent-light">Digital Edition</span> ${item.title}</p>`
             :
-            `<h2 class="text-text-dark title-font text-lg font-bold leading-tight">${item.title}</h2>`
+            `<p class="text-text-dark title-font text-lg font-bold leading-tight">${item.title}</p>`
           }
           </div>
         </a>`;

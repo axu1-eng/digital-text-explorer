@@ -80,7 +80,7 @@
           <div class="space-y-2 pl-3">
             {% for sub in item.sub %}
             {% if sub.external %}
-            <a href="{{ sub.url }}" target="_blank" class="block text-sm text-accent-dark hover:text-accent-light">{{ sub.title }} ↗</a>
+            <a href="{{ sub.url }}" target="_blank" class="block text-sm text-accent-dark hover:text-accent-light">{{ sub.title }}</a>
             {% else %}
             <a href="{{ sub.url }}" class="block text-sm text-accent-dark hover:text-accent-light">{{ sub.title }}</a>
             {% endif %}
